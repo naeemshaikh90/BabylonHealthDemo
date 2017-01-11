@@ -1,0 +1,62 @@
+PATH
+  remote: .
+  specs:
+    krausefx-shenzhen (0.14.11)
+      commander (>= 4.3, < 5.0)
+      dotenv (>= 0.7)
+      faraday (~> 0.9)
+      faraday_middleware (~> 0.9)
+      highline (>= 1.7.2)
+      json (~> 1.8)
+      net-sftp (~> 2.1.2)
+      plist (>= 3.1.0, < 4.0.0)
+      rubyzip (~> 1.1)
+      security (~> 0.1.3)
+      terminal-table (~> 1.4.5)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    commander (4.4.0)
+      highline (~> 1.7.2)
+    diff-lcs (1.2.5)
+    dotenv (2.1.1)
+    faraday (0.9.2)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.10.0)
+      faraday (>= 0.7.4, < 0.10)
+    highline (1.7.8)
+    json (1.8.3)
+    multipart-post (2.0.0)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (3.2.0)
+    plist (3.2.0)
+    rake (11.2.2)
+    rspec (3.5.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
+    rspec-core (3.5.2)
+      rspec-support (~> 3.5.0)
+    rspec-expectations (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-mocks (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-support (3.5.0)
+    rubyzip (1.2.0)
+    security (0.1.3)
+    terminal-table (1.4.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  krausefx-shenzhen!
+  rake
+  rspec
+
+BUNDLED WITH
+   1.13.6

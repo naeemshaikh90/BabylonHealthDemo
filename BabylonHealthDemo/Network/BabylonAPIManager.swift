@@ -1,0 +1,96 @@
+//
+//  BabylonAPIManager.swift
+//  BabylonHealthDemo
+//
+//  Created by Naeem Shaikh on 11/01/17.
+//  Copyright © 2017 Naeem Shaikh. All rights reserved.
+//
+
+import Foundation
+import Moya
+import RxSwift
+import ObjectMapper
+import Moya_ObjectMapper
+
+extension Response {
+  func removeAPIWrappers() -> Response {
+    guard let json = try? self.mapJSON() as? Dictionary<String, AnyObject>,
+      let results = json?["data"]?["results"] ?? [],
+      let newData = try? JSONSerialization.data(withJSONObject: results, options: .prettyPrinted) else {
+        return self
+    }
+    
+    let newResponse = Response(statusCode: self.statusCode,
+                               data: newData,
+                               response: self.response)
+    return newResponse
+  }
+}
+
+struct BabylonAPIManger {
+  let provider: RxMoyaProvider<BabylonAPI>
+  let disposeBag = DisposeBag()
+  
+  init() {
+    provider = RxMoyaProvider<BabylonAPI>()
+  }
+}
+
+extension BabylonAPIManger {
+  typealias AdditionalStepsAction = (() -> ())
+  
+  fileprivate func requestObject<T: Mappable>(_ token: BabylonAPI, type: T.Type,
+                                 completion: @escaping (T?) -> Void,
+                                 additionalSteps: AdditionalStepsAction? = nil) {
+    provider.request(token)
+      .debug()
+      .mapObject(T.self)
+      .subscribe { event -> Void in
+        switch event {
+        case .next(let parsedObject):
+          completion(parsedObject)
+          additionalSteps?()
+        case.error(let error):
+          print(error)
+          completion(nil)
+        default:
+          break
+        }
+    }.addDisposableTo(disposeBag)
+  }
+  
+  fileprivate func requestArray<T: Mappable>(_ token: BabylonAPI, type: T.Type,
+                                completion: @escaping ([T]?) -> Void,
+                                additionalSteps: AdditionalStepsAction? = nil) {
+    provider.request(token)
+      .debug()
+      .map { respose -> Response in
+        return respose.removeAPIWrappers()
+      }
+      .mapArray(T.self)
+      .subscribe { event -> Void in
+        switch event {
+        case .next(let parsedArray):
+          completion(parsedArray)
+          additionalSteps?()
+        case .error(let error):
+          print(error)
+          completion(nil)
+        default:
+          break
+        }
+      }.addDisposableTo(disposeBag)
+  }
+}
+
+protocol BabylonAPICalls {
+  func posts(query: String?, completion: @escaping ([Post]?) -> Void)
+}
+
+extension BabylonAPIManger: BabylonAPICalls {
+  func posts(query: String?, completion: @escaping ([Post]?) -> Void) {
+    requestArray(.posts(),
+                 type: Post.self,
+                 completion: completion)
+  }
+}

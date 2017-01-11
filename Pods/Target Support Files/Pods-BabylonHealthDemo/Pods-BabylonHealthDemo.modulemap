@@ -1,0 +1,6 @@
+framework module Pods_BabylonHealthDemo {
+  umbrella header "Pods-BabylonHealthDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}

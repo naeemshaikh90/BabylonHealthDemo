@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='BabylonHealthDemoTests.xctest' tests='2' failures='0'>
+  <testsuite name='BabylonHealthDemoTests.BabylonHealthDemoTests' tests='2' failures='0'>
+    <testcase classname='BabylonHealthDemoTests.BabylonHealthDemoTests' name='testExample' time='0.002'/>
+    <testcase classname='BabylonHealthDemoTests.BabylonHealthDemoTests' name='testPerformanceExample' time='0.564'/>
+  </testsuite>
+</testsuites>

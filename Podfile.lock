@@ -1,0 +1,67 @@
+PODS:
+  - Alamofire (4.2.0)
+  - Fakery (2.0.0)
+  - Moya (8.0.0):
+    - Moya/Core (= 8.0.0)
+  - Moya-ObjectMapper/Core (2.3):
+    - Moya (>= 8.0.0)
+    - ObjectMapper (= 2.2.2)
+  - Moya-ObjectMapper/RxSwift (2.3):
+    - Moya-ObjectMapper/Core
+    - Moya/RxSwift
+    - RxSwift (= 3.1.0)
+  - Moya/Core (8.0.0):
+    - Alamofire (~> 4.2.0)
+    - Result (~> 3.1.0)
+  - Moya/RxSwift (8.0.0):
+    - Moya/Core
+    - RxSwift (~> 3.1.0)
+  - Nimble (5.1.1)
+  - ObjectMapper (2.2.2)
+  - Quick (1.0.0)
+  - Result (3.1.0)
+  - Reusable (3.0.1):
+    - Reusable/Storyboard (= 3.0.1)
+    - Reusable/View (= 3.0.1)
+  - Reusable/Storyboard (3.0.1)
+  - Reusable/View (3.0.1)
+  - RxSwift (3.1.0)
+  - SwiftGen (4.1.0)
+
+DEPENDENCIES:
+  - Fakery
+  - Moya
+  - Moya-ObjectMapper/RxSwift (from `https://github.com/ivanbruel/Moya-ObjectMapper`)
+  - Moya/RxSwift
+  - Nimble
+  - ObjectMapper
+  - Quick
+  - Reusable
+  - RxSwift
+  - SwiftGen
+
+EXTERNAL SOURCES:
+  Moya-ObjectMapper:
+    :git: https://github.com/ivanbruel/Moya-ObjectMapper
+
+CHECKOUT OPTIONS:
+  Moya-ObjectMapper:
+    :commit: 7e56b363e71d70b3c2c1aff4e909bcf92a05c20d
+    :git: https://github.com/ivanbruel/Moya-ObjectMapper
+
+SPEC CHECKSUMS:
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  Fakery: 97b99c23937d2e025d9135c75e2b17351ccd5031
+  Moya: 850a166ab8241bd1c1cea6dbe012e3a2ad62944a
+  Moya-ObjectMapper: 1d2799d27c1173cb8c95c606a44fbd218526fd06
+  Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
+  ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
+  Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
+  Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
+  Reusable: 5362d10271ca8316b104698a21e90498f47e8339
+  RxSwift: 83ff553e7593fdfdcb2562933a64c0284dffdadc
+  SwiftGen: d29fd8b7aa52092411d415fb09d0abd3d79ea1a5
+
+PODFILE CHECKSUM: eb1d92ca785723e72d518bb06325f636f51da4f7
+
+COCOAPODS: 1.1.1
