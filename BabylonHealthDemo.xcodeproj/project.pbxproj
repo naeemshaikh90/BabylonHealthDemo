@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		20D87FC74268CBBE4AC23645 /* Pods_BabylonHealthDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E258F6C38B2D49DA61D2F64 /* Pods_BabylonHealthDemo.framework */; };
+		B462A1221E2683C100BC518D /* MockLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B462A1211E2683C100BC518D /* MockLoader.swift */; };
+		B462A12A1E26882B00BC518D /* PostSpec.json in Resources */ = {isa = PBXBuildFile; fileRef = B462A1291E26882B00BC518D /* PostSpec.json */; };
+		B462A12C1E26886000BC518D /* PostSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B462A12B1E26886000BC518D /* PostSpec.swift */; };
 		D705271A8533131DD44FFA9A /* Pods_BabylonHealthDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 860BA1EEDF4E992C4C120E99 /* Pods_BabylonHealthDemoTests.framework */; };
 		F709A87C1E25F3F600EBF35D /* BabylonAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F709A87B1E25F3F600EBF35D /* BabylonAPIManager.swift */; };
 		F709A87F1E26043A00EBF35D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F709A87E1E26043A00EBF35D /* Post.swift */; };
@@ -44,6 +47,9 @@
 		823E43899E47E6E074491D8D /* Pods-BabylonHealthDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabylonHealthDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BabylonHealthDemoTests/Pods-BabylonHealthDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		860BA1EEDF4E992C4C120E99 /* Pods_BabylonHealthDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabylonHealthDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1EBB1DAE68A0ECBB96C9CBA /* Pods-BabylonHealthDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabylonHealthDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-BabylonHealthDemo/Pods-BabylonHealthDemo.release.xcconfig"; sourceTree = "<group>"; };
+		B462A1211E2683C100BC518D /* MockLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockLoader.swift; sourceTree = "<group>"; };
+		B462A1291E26882B00BC518D /* PostSpec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PostSpec.json; sourceTree = "<group>"; };
+		B462A12B1E26886000BC518D /* PostSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostSpec.swift; sourceTree = "<group>"; };
 		CCA4CE467B37E50E141612A2 /* Pods-BabylonHealthDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabylonHealthDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BabylonHealthDemoTests/Pods-BabylonHealthDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EB0C14297169136FBCAA7E71 /* Pods-BabylonHealthDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabylonHealthDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BabylonHealthDemo/Pods-BabylonHealthDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		F709A87B1E25F3F600EBF35D /* BabylonAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BabylonAPIManager.swift; sourceTree = "<group>"; };
@@ -110,6 +116,30 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B462A1201E2683AA00BC518D /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				B462A1211E2683C100BC518D /* MockLoader.swift */,
+			);
+			path = TestHelpers;
+			sourceTree = "<group>";
+		};
+		B462A1231E26849F00BC518D /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				B462A1291E26882B00BC518D /* PostSpec.json */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		B462A1261E2685CF00BC518D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B462A12B1E26886000BC518D /* PostSpec.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F709A87D1E26041100EBF35D /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +200,9 @@
 		F779C35D1E25E43E008BBB2A /* BabylonHealthDemoTests */ = {
 			isa = PBXGroup;
 			children = (
+				B462A1261E2685CF00BC518D /* Models */,
+				B462A1201E2683AA00BC518D /* TestHelpers */,
+				B462A1231E26849F00BC518D /* Mocks */,
 				F779C35E1E25E43E008BBB2A /* BabylonHealthDemoTests.swift */,
 				F779C3601E25E43E008BBB2A /* Info.plist */,
 			);
@@ -324,6 +357,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B462A12A1E26882B00BC518D /* PostSpec.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +494,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B462A1221E2683C100BC518D /* MockLoader.swift in Sources */,
+				B462A12C1E26886000BC518D /* PostSpec.swift in Sources */,
 				F779C35F1E25E43E008BBB2A /* BabylonHealthDemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
