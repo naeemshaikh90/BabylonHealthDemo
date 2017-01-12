@@ -33,3 +33,19 @@ final class PostDatasource: NSObject, ItemsTableViewDatasource {
     return cell
   }
 }
+
+class PostTableDelegate: NSObject, UITableViewDelegate {
+  let delegate: PostDelegate
+  
+  init(_ delegate: PostDelegate) {
+    self.delegate = delegate
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return PostCell.height()
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    delegate.didSelectPost(at: indexPath)
+  }
+}

@@ -14,8 +14,8 @@ import Moya_ObjectMapper
 
 extension Response {
   func removeAPIWrappers() -> Response {
-    guard let json = try? self.mapJSON() as? Dictionary<String, AnyObject>,
-      let results = json?["data"]?["results"] ?? [],
+    guard let json = try? self.mapJSON() as? [[String: AnyObject]],
+      let results = json,
       let newData = try? JSONSerialization.data(withJSONObject: results, options: .prettyPrinted) else {
         return self
     }
@@ -84,11 +84,11 @@ extension BabylonAPIManger {
 }
 
 protocol BabylonAPICalls {
-  func posts(query: String?, completion: @escaping ([Post]?) -> Void)
+  func posts(completion: @escaping ([Post]?) -> Void)
 }
 
 extension BabylonAPIManger: BabylonAPICalls {
-  func posts(query: String?, completion: @escaping ([Post]?) -> Void) {
+  func posts(completion: @escaping ([Post]?) -> Void) {
     requestArray(.posts(),
                  type: Post.self,
                  completion: completion)

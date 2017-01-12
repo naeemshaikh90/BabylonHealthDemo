@@ -46,12 +46,30 @@ struct Storyboard {
   enum LaunchScreen: StoryboardSceneType {
     static let storyboardName = "LaunchScreen"
   }
-  enum Main: StoryboardSceneType {
+  enum Main: String, StoryboardSceneType {
     static let storyboardName = "Main"
 
-    static func initialViewController() -> BabylonHealthDemo.PostController {
-      guard let vc = storyboard().instantiateInitialViewController() as? BabylonHealthDemo.PostController else {
+    static func initialViewController() -> UINavigationController {
+      guard let vc = storyboard().instantiateInitialViewController() as? UINavigationController else {
         fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+      }
+      return vc
+    }
+
+    case postControllerScene = "PostController"
+    static func instantiatePostController() -> BabylonHealthDemo.PostController {
+      guard let vc = Storyboard.Main.postControllerScene.viewController() as? BabylonHealthDemo.PostController
+      else {
+        fatalError("ViewController 'PostController' is not of the expected class BabylonHealthDemo.PostController.")
+      }
+      return vc
+    }
+
+    case postDetailControllerScene = "PostDetailController"
+    static func instantiatePostDetailController() -> BabylonHealthDemo.PostDetailController {
+      guard let vc = Storyboard.Main.postDetailControllerScene.viewController() as? BabylonHealthDemo.PostDetailController
+      else {
+        fatalError("ViewController 'PostDetailController' is not of the expected class BabylonHealthDemo.PostDetailController.")
       }
       return vc
     }

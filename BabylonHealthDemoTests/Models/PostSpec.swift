@@ -13,14 +13,12 @@ import Nimble
 class PostSpec: QuickSpec {
   override func spec() {
     describe("a post") {
-      
       var post: BabylonHealthDemo.Post!
       
       beforeEach {
         let testBundle = Bundle(for: type(of: self))
-        let mockLoader = MockLoader(file: "PostSpec", in: testBundle)
+        let mockLoader = MockLoader(file: "Post", in: testBundle)
         post = mockLoader?.map(to: Post.self)
-        dump(post)
       }
       
       it("should be able to create a post from json") {
@@ -29,6 +27,10 @@ class PostSpec: QuickSpec {
       
       it("should have a title") {
         expect(post.title).toNot(beNil())
+      }
+      
+      it("should have a body") {
+        expect(post.body).toNot(beNil())
       }
     }
   }

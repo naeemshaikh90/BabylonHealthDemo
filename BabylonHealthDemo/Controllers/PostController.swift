@@ -7,29 +7,35 @@
 //
 
 import UIKit
+import Alamofire
 
-class PostController: UIViewController {
+protocol PostDelegate {
+  func didSelectPost(at index: IndexPath)
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+final class PostController: UIViewController {
+  var apiManager: BabylonAPICalls = BabylonAPIManger()
+  var posts: [Post] = []
+  
+  var tableDatasource: PostDatasource?
+  var tableDelegate: PostDelegate?
+  
+  @IBOutlet weak var tableView: UITableView!
+}
 
-        // Do any additional setup after loading the view.
+extension PostController {
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    fetchPosts()
+  }
+}
+
+extension PostController {
+  func fetchPosts(for query: String? = nil) {
+    apiManager.posts() { posts in
+      if let posts = posts {
+        print(posts.count)
+      }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  }
 }
