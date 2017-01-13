@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PostCollectionCell" customModule="BabylonHealthDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mny-pN-98l">
+                        <rect key="frame" x="8" y="4" width="304" height="155"/>
+                        <color key="backgroundColor" red="0.0" green="0.37647058820000001" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sunt aut facere repellat provident occaecati excepturi optio reprehenderit" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3m-Ak-jCt">
+                        <rect key="frame" x="16" y="110" width="288" height="41"/>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="mny-pN-98l" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Cbz-fX-b1W"/>
+                <constraint firstItem="y3m-Ak-jCt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="J3J-oS-umM"/>
+                <constraint firstAttribute="bottom" secondItem="mny-pN-98l" secondAttribute="bottom" id="KkV-Xx-UOV"/>
+                <constraint firstItem="mny-pN-98l" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="atN-Xs-5VP"/>
+                <constraint firstAttribute="trailing" secondItem="y3m-Ak-jCt" secondAttribute="trailing" constant="16" id="kEX-n7-gjw"/>
+                <constraint firstAttribute="trailing" secondItem="mny-pN-98l" secondAttribute="trailing" constant="8" id="n2F-hg-0QM"/>
+                <constraint firstAttribute="bottom" secondItem="y3m-Ak-jCt" secondAttribute="bottom" constant="8" id="vTy-Wo-23z"/>
+            </constraints>
+            <size key="customSize" width="336" height="123"/>
+            <connections>
+                <outlet property="postImage" destination="mny-pN-98l" id="T9O-U4-HdS"/>
+                <outlet property="postTitle" destination="y3m-Ak-jCt" id="Fdy-M4-XhB"/>
+            </connections>
+            <point key="canvasLocation" x="-174" y="-104.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

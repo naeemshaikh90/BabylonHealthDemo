@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Post Controller-->
+        <!--Posts-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="PostController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="PostController" customModule="BabylonHealthDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,26 +21,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qR3-TP-JNK">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O1O-8Q-R4q">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="dPP-Ba-h5f"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ezG-JH-grf"/>
-                                </connections>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xu8-eU-DIi">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="4xb-6t-hxG">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qR3-TP-JNK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Nb7-tq-a4G"/>
-                            <constraint firstAttribute="trailing" secondItem="qR3-TP-JNK" secondAttribute="trailing" id="dJa-Yi-iIy"/>
-                            <constraint firstItem="qR3-TP-JNK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wpx-Jb-y8g"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qR3-TP-JNK" secondAttribute="bottom" id="xC8-aU-XzE"/>
+                            <constraint firstItem="O1O-8Q-R4q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7dj-CH-UC0"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="O1O-8Q-R4q" secondAttribute="bottom" id="DxL-cI-PJx"/>
+                            <constraint firstItem="O1O-8Q-R4q" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SBb-rW-vxn"/>
+                            <constraint firstAttribute="trailing" secondItem="O1O-8Q-R4q" secondAttribute="trailing" id="b3a-t3-kER"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="bHP-fy-CaJ"/>
+                    <navigationItem key="navigationItem" title="Posts" id="bHP-fy-CaJ">
+                        <barButtonItem key="backBarButtonItem" title=" " id="fKk-rB-gDG"/>
+                    </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="qR3-TP-JNK" id="cjX-D0-2u7"/>
+                        <outlet property="collectionView" destination="O1O-8Q-R4q" id="ta8-xX-PqV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -58,12 +72,27 @@
                     <view key="view" contentMode="scaleToFill" id="0pL-gh-qqV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nle-Um-5wQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Nle-Um-5wQ" firstAttribute="top" secondItem="0pL-gh-qqV" secondAttribute="top" id="0v2-wd-m0e"/>
+                            <constraint firstItem="J1f-Cm-npM" firstAttribute="top" secondItem="Nle-Um-5wQ" secondAttribute="bottom" id="Nab-8l-rJo"/>
+                            <constraint firstAttribute="trailing" secondItem="Nle-Um-5wQ" secondAttribute="trailing" id="asB-hJ-ITa"/>
+                            <constraint firstItem="Nle-Um-5wQ" firstAttribute="leading" secondItem="0pL-gh-qqV" secondAttribute="leading" id="dYy-hk-S4S"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Nle-Um-5wQ" id="kgp-1M-g2Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pbm-Gi-nkt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="985" y="-580"/>
+            <point key="canvasLocation" x="984.79999999999995" y="-580.65967016491754"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RZN-ZK-Vi7">

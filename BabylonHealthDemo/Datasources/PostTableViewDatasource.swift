@@ -8,18 +8,18 @@
 
 import UIKit
 
-protocol ItemsTableViewDatasource: UITableViewDataSource {
+protocol PostTableViewDatasource: UITableViewDataSource {
   associatedtype T
-  var items:[T] {get}
-  weak var tableView: UITableView? { get }
-  weak var delegate: UITableViewDelegate? { get }
+  var post:T {get}
+  weak var tableView: UITableView? {get}
+  weak var delegate: UITableViewDelegate? {get}
   
-  init(items: [T], tableView: UITableView, delegate: UITableViewDelegate)
+  init(post: T, tableView: UITableView, delegate: UITableViewDelegate)
   
   func setupTableView()
 }
 
-extension ItemsTableViewDatasource {
+extension PostTableViewDatasource {
   func setupTableView() {
     self.tableView?.dataSource = self
     self.tableView?.delegate = self.delegate

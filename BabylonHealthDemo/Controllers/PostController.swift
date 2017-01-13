@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import Alamofire
+import SVProgressHUD
 
-protocol PostDelegate {
+protocol PostsDelegate {
   func didSelectPost(at index: IndexPath)
 }
 
@@ -17,10 +17,10 @@ final class PostController: UIViewController {
   var apiManager: BabylonAPICalls = BabylonAPIManger()
   var posts: [Post] = []
   
-  var tableDatasource: PostDatasource?
-  var tableDelegate: PostDelegate?
+  var collectionDatasource: PostsDatasource?
+  var collectionDelegate:   PostCollectionDelegate?
   
-  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var collectionView: UICollectionView!
 }
 
 extension PostController {
@@ -31,11 +31,38 @@ extension PostController {
 }
 
 extension PostController {
-  func fetchPosts(for query: String? = nil) {
+  func fetchPosts() {
+    collectionView.isHidden = true
+    SVProgressHUD.show()
     apiManager.posts() { posts in
+      SVProgressHUD.dismiss()
       if let posts = posts {
-        print(posts.count)
+        self.setupCollectionView(with: posts)
       }
     }
+  }
+  
+  func setupCollectionView(with posts: [Post]) {
+    self.posts = posts
+    self.collectionView.isHidden = false
+    collectionDelegate = PostCollectionDelegate(self)
+    collectionDatasource = PostsDatasource(posts: posts,
+                                           collectionView: self.collectionView,
+                                           delegate: collectionDelegate!)
+  }
+}
+
+extension PostController: PostsDelegate {
+  func didSelectPost(at index: IndexPath) {
+    guard let nextController = Storyboard.Main
+      .postDetailControllerScene
+      .viewController() as? PostDetailController else {
+        return
+    }
+    
+    let post = posts[index.row]
+    nextController.post = post
+    self.navigationController?.pushViewController(nextController,
+                                                  animated: true)
   }
 }

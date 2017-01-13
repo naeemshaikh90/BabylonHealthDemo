@@ -21,6 +21,8 @@ extension Company: Mappable {
   }
   
   mutating func mapping(map: Map) {
-    
+    bs          <- map["bs"]
+    catchPhrase <- map["catchPhrase"]
+    name        <- map["name"]
   }
 }

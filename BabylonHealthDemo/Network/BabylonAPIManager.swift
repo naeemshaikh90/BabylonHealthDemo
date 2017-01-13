@@ -85,12 +85,26 @@ extension BabylonAPIManger {
 
 protocol BabylonAPICalls {
   func posts(completion: @escaping ([Post]?) -> Void)
+  func user(userId: Int, completion: @escaping (User?) -> Void)
+  func comments(completion: @escaping ([Comment]?) -> Void)
 }
 
 extension BabylonAPIManger: BabylonAPICalls {
   func posts(completion: @escaping ([Post]?) -> Void) {
     requestArray(.posts(),
                  type: Post.self,
+                 completion: completion)
+  }
+  
+  func user(userId: Int, completion: @escaping (User?) -> Void) {
+    requestObject(.user(userId),
+                 type: User.self,
+                 completion: completion)
+  }
+  
+  func comments(completion: @escaping ([Comment]?) -> Void) {
+    requestArray(.comments(),
+                 type: Comment.self,
                  completion: completion)
   }
 }

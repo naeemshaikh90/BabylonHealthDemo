@@ -20,6 +20,7 @@ extension Geo: Mappable {
   }
   
   mutating func mapping(map: Map) {
-    
+    lat <- map["lat"]
+    lng <- map["lng"]
   }
 }

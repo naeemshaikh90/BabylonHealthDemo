@@ -8,13 +8,14 @@
 
 import UIKit
 
-final class PostDatasource: NSObject, ItemsTableViewDatasource {
-  var items: [Post] = []
+final class PostDatasource: NSObject, PostTableViewDatasource {
+  var post: Post
+  
   weak var tableView: UITableView?
   weak var delegate: UITableViewDelegate?
 		
-  required init(items: [Post], tableView: UITableView, delegate: UITableViewDelegate) {
-    self.items = items
+  required init(post: Post, tableView: UITableView, delegate: UITableViewDelegate) {
+    self.post = post
     self.tableView = tableView
     self.delegate = delegate
     super.init()
@@ -23,13 +24,12 @@ final class PostDatasource: NSObject, ItemsTableViewDatasource {
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.items.count
+    return 1
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(for: indexPath, cellType: PostCell.self)
-    let post = self.items[indexPath.row]
-    cell.setup(item: post)
+    cell.setup(post: post)
     return cell
   }
 }
@@ -41,8 +41,12 @@ class PostTableDelegate: NSObject, UITableViewDelegate {
     self.delegate = delegate
   }
   
+  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    return PostCell.estimatedHeight()
+  }
+  
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return PostCell.height()
+    return UITableViewAutomaticDimension
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -13,12 +13,12 @@ final class PostCell: UITableViewCell, NibReusable {
   @IBOutlet weak var postTitle: UILabel!
   @IBOutlet weak var postBody: UILabel!
   
-  static func height() -> CGFloat {
+  static func estimatedHeight() -> CGFloat {
     return 67
   }
   
-  func setup(item: Post) {
-    postTitle.text = item.title
-    postBody.text = item.body
+  func setup(post: Post) {
+    postTitle.text = post.title
+    postBody.text = post.body
   }
 }

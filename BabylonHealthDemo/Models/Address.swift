@@ -23,6 +23,10 @@ extension Address: Mappable {
   }
   
   mutating func mapping(map: Map) {
-    
+    city    <- map["city"]
+    geo     <- map["geo"]
+    street  <- map["street"]
+    suite   <- map["suite"]
+    zipcode <- map["zipcode"]
   }
 }

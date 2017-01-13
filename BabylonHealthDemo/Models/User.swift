@@ -26,13 +26,13 @@ extension User: Mappable {
   }
   
   mutating func mapping(map: Map) {
-    address   <- map[""]
-    company   <- map[""]
-    email     <- map[""]
-    id        <- map[""]
-    name      <- map[""]
-    phone     <- map[""]
-    username  <- map[""]
-    website   <- map[""]
+    id        <- map["id"]
+    name      <- map["name"]
+    username  <- map["username"]
+    email     <- map["email"]
+    address   <- map["address"]
+    phone     <- map["phone"]
+    website   <- map["website"]
+    company   <- map["company"]
   }
 }

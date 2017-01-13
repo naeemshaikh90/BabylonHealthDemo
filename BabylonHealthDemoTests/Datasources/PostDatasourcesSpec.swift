@@ -13,7 +13,7 @@ import Nimble
 
 class PostDatasourceSpec: QuickSpec {
   override func spec() {
-    describe("PostDatasource") { 
+    describe("PostDatasource") {
       var controller: PostController!
       var post: BabylonHealthDemo.Post!
       
@@ -21,7 +21,7 @@ class PostDatasourceSpec: QuickSpec {
         let testBundle = Bundle(for: type(of: self))
         let mockLoader = MockLoader(file: "Post", in: testBundle)
         post = (mockLoader?.map(to: Post.self))!
-      
+        
         let apiMock = BabylonAPICallsMock(post: [post])
         controller = Storyboard.Main.postControllerScene.viewController() as! PostController
         controller.apiManager = apiMock
