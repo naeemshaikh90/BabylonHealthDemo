@@ -13,9 +13,10 @@ protocol PostDelegate {
   func didSelectPost(at index: IndexPath)
 }
 
+/*
 protocol CommentDelegate {
   func didSelectComment(at index: IndexPath)
-}
+}*/
 
 final class PostDetailController: UIViewController {
   var apiManager: BabylonAPICalls = BabylonAPIManger()
@@ -26,8 +27,8 @@ final class PostDetailController: UIViewController {
   var tableDatasource: PostDatasource?
   var tableDelegate: PostTableDelegate?
   
-  var commentTableDatasource: CommentDatasource?
-  var commentTableDelegate: CommentTableDelegate?
+  //var commentTableDatasource: CommentDatasource?
+  //var commentTableDelegate: CommentTableDelegate?
   
   @IBOutlet weak var tableView: UITableView!
 }
@@ -36,9 +37,8 @@ extension PostDetailController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.tableView.isHidden = true
-    if let post = post {
+    if post != nil {
       self.tableView.isHidden = false
-      setupPostView(with: post)
       fetchAuthor()
       fetchComments()
     }
@@ -58,7 +58,7 @@ extension PostDetailController {
               postComments.append(comment)
             }
           }
-          self.setupCommentView(with: postComments)
+          self.setupPostView(with: post, comments: postComments)
         }
       }
     }
@@ -78,29 +78,17 @@ extension PostDetailController {
 }
 
 extension PostDetailController {
-  func setupPostView(with post: Post) {
+  func setupPostView(with post: Post, comments: [Comment]) {
     tableDelegate = PostTableDelegate(self)
     tableDatasource = PostDatasource(post: post,
+                                     comments: comments,
                                      tableView: self.tableView,
                                      delegate: tableDelegate!)
-  }
-  
-  func setupCommentView(with comments: [Comment]) {
-    commentTableDelegate = CommentTableDelegate(self)
-    commentTableDatasource = CommentDatasource(comments: comments,
-                                               tableView: self.tableView,
-                                               delegate: commentTableDelegate!)
   }
 }
 
 extension PostDetailController: PostDelegate {
   func didSelectPost(at index: IndexPath) {
-    
-  }
-}
-
-extension PostDetailController: CommentDelegate {
-  func didSelectComment(at index: IndexPath) {
     
   }
 }

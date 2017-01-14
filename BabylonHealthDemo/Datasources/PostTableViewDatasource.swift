@@ -9,12 +9,16 @@
 import UIKit
 
 protocol PostTableViewDatasource: UITableViewDataSource {
-  associatedtype T
-  var post:T {get}
+  associatedtype P
+  associatedtype C
+  
+  var post:P {get}
+  var comments:[C] {get}
+  
   weak var tableView: UITableView? {get}
   weak var delegate: UITableViewDelegate? {get}
   
-  init(post: T, tableView: UITableView, delegate: UITableViewDelegate)
+  init(post: P, comments: [C], tableView: UITableView, delegate: UITableViewDelegate)
   
   func setupTableView()
 }

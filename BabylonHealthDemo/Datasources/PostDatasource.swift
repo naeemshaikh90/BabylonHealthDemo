@@ -10,27 +10,45 @@ import UIKit
 
 final class PostDatasource: NSObject, PostTableViewDatasource {
   var post: Post
+  var comments: [Comment]
   
   weak var tableView: UITableView?
   weak var delegate: UITableViewDelegate?
 		
-  required init(post: Post, tableView: UITableView, delegate: UITableViewDelegate) {
+  required init(post: Post, comments: [Comment], tableView: UITableView, delegate: UITableViewDelegate) {
     self.post = post
+    self.comments = comments
     self.tableView = tableView
     self.delegate = delegate
     super.init()
     tableView.register(cellType: PostCell.self)
+    tableView.register(cellType: CommentCell.self)
     self.setupTableView()
   }
   
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 2
+  }
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
+    if section == 0 {
+      return 1
+    } else {
+      return comments.count
+    }
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(for: indexPath, cellType: PostCell.self)
-    cell.setup(post: post)
-    return cell
+    if indexPath.section == 0 {
+      let cell = tableView.dequeueReusableCell(for: indexPath, cellType: PostCell.self)
+      cell.setup(post: post)
+      return cell
+    } else {
+      let cell = tableView.dequeueReusableCell(for: indexPath, cellType: CommentCell.self)
+      let comment = self.comments[indexPath.row]
+      cell.setup(comment: comment)
+      return cell
+    }
   }
 }
 
@@ -42,7 +60,11 @@ class PostTableDelegate: NSObject, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-    return PostCell.estimatedHeight()
+    if indexPath.section == 0 {
+      return PostCell.estimatedHeight()
+    } else {
+      return CommentCell.estimatedHeight()
+    }
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
