@@ -11,6 +11,7 @@ import Moya
 import RxSwift
 import ObjectMapper
 import Moya_ObjectMapper
+import RealmSwift
 
 extension Response {
   func removeAPIWrappers() -> Response {
@@ -48,6 +49,7 @@ extension BabylonAPIManger {
       .subscribe { event -> Void in
         switch event {
         case .next(let parsedObject):
+          self.saveOfflineData([parsedObject])
           completion(parsedObject)
           additionalSteps?()
         case.error(let error):
@@ -71,6 +73,7 @@ extension BabylonAPIManger {
       .subscribe { event -> Void in
         switch event {
         case .next(let parsedArray):
+          self.saveOfflineData(parsedArray)
           completion(parsedArray)
           additionalSteps?()
         case .error(let error):
@@ -81,10 +84,24 @@ extension BabylonAPIManger {
         }
       }.addDisposableTo(disposeBag)
   }
+  
+  fileprivate func saveOfflineData(_ parsedArray: Array<Any>) {
+    do {
+      let realm = try Realm()
+      try realm.write {
+        for element in parsedArray {
+          realm.add(element as! Object, update: true)
+        }
+      }
+    } catch let error as NSError {
+      print(error.localizedDescription)
+    }
+  }
 }
 
 protocol BabylonAPICalls {
   func posts(completion: @escaping ([Post]?) -> Void)
+  func users(completion: @escaping ([User]?) -> Void)
   func user(userId: Int, completion: @escaping (User?) -> Void)
   func comments(completion: @escaping ([Comment]?) -> Void)
 }
@@ -94,6 +111,12 @@ extension BabylonAPIManger: BabylonAPICalls {
     requestArray(.posts(),
                  type: Post.self,
                  completion: completion)
+  }
+  
+  func users(completion: @escaping ([User]?) -> Void) {
+    requestArray(.users(),
+                  type: User.self,
+                  completion: completion)
   }
   
   func user(userId: Int, completion: @escaping (User?) -> Void) {

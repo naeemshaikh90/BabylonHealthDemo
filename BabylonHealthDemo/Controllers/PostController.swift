@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import RealmSwift
 
 protocol PostsDelegate {
   func didSelectPost(at index: IndexPath)
@@ -26,7 +27,10 @@ final class PostController: UIViewController {
 extension PostController {
   override func viewDidLoad() {
     super.viewDidLoad()
-    fetchPosts()
+    fetchSavePosts()
+    if posts.isEmpty {
+      fetchPosts()
+    }
   }
 }
 
@@ -39,6 +43,30 @@ extension PostController {
       if let posts = posts {
         self.setupCollectionView(with: posts)
       }
+    }
+  }
+  
+  func fetchSavePosts() {
+    do {
+      let realm = try Realm()
+      let offlinePosts = realm.objects(Post.self)
+      for offlinePost in offlinePosts {
+        posts.append(offlinePost)
+      }
+      self.setupCollectionView(with: posts)
+    } catch let error as NSError {
+      print(error.localizedDescription)
+    }
+  }
+  
+  func deteteAllPosts() {
+    do {
+      let realm = try Realm()
+      try realm.write {
+        realm.deleteAll()
+      }
+    } catch let error as NSError {
+      print(error.localizedDescription)
     }
   }
   

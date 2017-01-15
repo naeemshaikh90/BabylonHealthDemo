@@ -13,6 +13,7 @@ target 'BabylonHealthDemo' do
    pod 'Moya-ObjectMapper/RxSwift', :git => 'https://github.com/ivanbruel/Moya-ObjectMapper'
    pod 'Reusable'
    pod 'SVProgressHUD'
+   pod 'RealmSwift'
 
   target 'BabylonHealthDemoTests' do
     inherit! :search_paths
@@ -22,6 +23,7 @@ target 'BabylonHealthDemo' do
     pod 'Nimble'
     pod 'Fakery'
     pod 'ObjectMapper'
+    pod 'RealmSwift'
   end
 
 end

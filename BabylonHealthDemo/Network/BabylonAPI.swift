@@ -11,6 +11,7 @@ import Moya
 
 enum BabylonAPI {
   case posts()
+  case users()
   case user(Int)
   case comments()
 }
@@ -22,6 +23,8 @@ extension BabylonAPI: TargetType {
     switch self {
     case .posts:
       return "posts"
+    case .users():
+      return "users"
     case .user(let userId):
       return "users/\(userId)"
     case .comments:
@@ -31,7 +34,7 @@ extension BabylonAPI: TargetType {
 		
   var method: Moya.Method {
     switch self {
-    case .posts, .user, .comments:
+    case .posts, .users(), .user, .comments:
       return .get
     }
   }

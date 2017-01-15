@@ -8,24 +8,29 @@
 
 import Foundation
 import ObjectMapper
+import RealmSwift
 
-struct User {
+class User: Object {
   var address: Address!
   var company: Company!
-  var email: String!
-  var id: Int!
-  var name: String!
-  var phone: String!
-  var username: String!
-  var website: String!
+  dynamic var email: String!
+  dynamic var id: Int = 0
+  dynamic var name: String!
+  dynamic var phone: String!
+  dynamic var username: String!
+  dynamic var website: String!
+  
+  required convenience init(map: Map) {
+    self.init()
+  }
 }
 
 extension User: Mappable {
-  init?(map: Map) {
-    
+  override static func primaryKey() -> String? {
+    return "id"
   }
   
-  mutating func mapping(map: Map) {
+  func mapping(map: Map) {
     id        <- map["id"]
     name      <- map["name"]
     username  <- map["username"]

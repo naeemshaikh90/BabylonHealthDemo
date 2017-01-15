@@ -8,21 +8,22 @@
 
 import Foundation
 import ObjectMapper
+import RealmSwift
 
-struct Address {
-  var city: String!
+class Address: Object {
   var geo: Geo!
-  var street: String!
-  var suite: String!
-  var zipcode: String!
+  dynamic var city: String = ""
+  dynamic var street: String = ""
+  dynamic var suite: String = ""
+  dynamic var zipcode: String = ""
+  
+  required convenience init(map: Map) {
+    self.init()
+  }
 }
 
 extension Address: Mappable {
-  init?(map: Map) {
-    
-  }
-  
-  mutating func mapping(map: Map) {
+  func mapping(map: Map) {
     city    <- map["city"]
     geo     <- map["geo"]
     street  <- map["street"]

@@ -8,19 +8,20 @@
 
 import Foundation
 import ObjectMapper
+import RealmSwift
 
-struct Company {
-  var bs: String!
-  var catchPhrase: String!
-  var name: String!
+class Company: Object {
+  dynamic var bs: String = ""
+  dynamic var catchPhrase: String = ""
+  dynamic var name: String = ""
+  
+  required convenience init(map: Map) {
+    self.init()
+  }
 }
 
 extension Company: Mappable {
-  init?(map: Map) {
-    
-  }
-  
-  mutating func mapping(map: Map) {
+  func mapping(map: Map) {
     bs          <- map["bs"]
     catchPhrase <- map["catchPhrase"]
     name        <- map["name"]

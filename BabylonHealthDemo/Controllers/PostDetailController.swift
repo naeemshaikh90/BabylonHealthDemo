@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import RealmSwift
 
 protocol PostDelegate {
   func didSelectPost(at index: IndexPath)
@@ -18,13 +19,11 @@ final class PostDetailController: UIViewController {
   var apiManager: BabylonAPICalls = BabylonAPIManger()
   var post: Post?
   var user: User?
+  var users: [User] = []
   var comments: [Comment] = []
   
   var tableDatasource: PostDatasource?
   var tableDelegate: PostTableDelegate?
-  
-  //var commentTableDatasource: CommentDatasource?
-  //var commentTableDelegate: CommentTableDelegate?
   
   @IBOutlet weak var tableView: UITableView!
 }
@@ -35,8 +34,15 @@ extension PostDetailController {
     self.tableView.isHidden = true
     if post != nil {
       self.tableView.isHidden = false
-      fetchAuthor()
-      fetchComments()
+      fetchSaveAuthor()
+      if user == nil {
+        fetchAuthor()
+      }
+      
+      fetchSaveComments()
+      if comments.isEmpty {
+        fetchComments()
+      }
     }
   }
 }
@@ -60,13 +66,65 @@ extension PostDetailController {
     }
   }
   
+  func fetchSaveComments() {
+    do {
+      let realm = try Realm()
+      let offlineComments = realm.objects(Comment.self)
+      for offlineComment in offlineComments {
+        comments.append(offlineComment)
+      }
+      
+      if let post = post {
+        var postComments: [Comment] = []
+        for comment in offlineComments {
+          if comment.postId == post.id {
+            postComments.append(comment)
+          }
+        }
+        self.setupPostView(with: post, comments: postComments)
+      }
+    } catch let error as NSError {
+      print(error.localizedDescription)
+    }
+  }
+  
   func fetchAuthor() {
-    SVProgressHUD.show()
     if let post = post {
       apiManager.user(userId: post.userId) { user in
-        SVProgressHUD.dismiss()
         if let user = user {
           self.navigationItem.title = user.name
+        }
+      }
+    }
+  }
+  
+  func fetchSaveAuthor() {
+    do {
+      let realm = try Realm()
+      let offlineUsers = realm.objects(User.self)
+      for offlineUser in offlineUsers {
+        if offlineUser.id == post?.userId {
+          user = offlineUser
+        }
+      }
+      
+      if let user = user {
+        self.navigationItem.title = user.name
+      }
+    } catch let error as NSError {
+      print(error.localizedDescription)
+    }
+  }
+  
+  func fetchAuthors() {
+    if let post = post {
+      apiManager.users() { users in
+        if let users = users {
+          for user in users {
+            if user.id == post.userId {
+              self.navigationItem.title = user.name
+            }
+          }
         }
       }
     }

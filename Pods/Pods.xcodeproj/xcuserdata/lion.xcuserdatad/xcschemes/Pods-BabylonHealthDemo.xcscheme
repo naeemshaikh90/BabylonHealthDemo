@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "27E1B9603540B69004E37133488EA0DB"
+               BlueprintIdentifier = "B6B69F178A788120BDC58298089C5AA2"
                BuildableName = "Pods_BabylonHealthDemo.framework"
                BlueprintName = "Pods-BabylonHealthDemo"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "27E1B9603540B69004E37133488EA0DB"
+            BlueprintIdentifier = "B6B69F178A788120BDC58298089C5AA2"
             BuildableName = "Pods_BabylonHealthDemo.framework"
             BlueprintName = "Pods-BabylonHealthDemo"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "27E1B9603540B69004E37133488EA0DB"
-            BuildableName = "Pods_BabylonHealthDemo.framework"
-            BlueprintName = "Pods-BabylonHealthDemo"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

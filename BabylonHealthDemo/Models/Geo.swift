@@ -8,18 +8,19 @@
 
 import Foundation
 import ObjectMapper
+import RealmSwift
 
-struct Geo {
-  var lat: String!
-  var lng: String!
+class Geo: Object {
+  dynamic var lat: String = ""
+  dynamic var lng: String = ""
+  
+  required convenience init(map: Map) {
+    self.init()
+  }
 }
 
 extension Geo: Mappable {
-  init?(map: Map) {
-    
-  }
-  
-  mutating func mapping(map: Map) {
+  func mapping(map: Map) {
     lat <- map["lat"]
     lng <- map["lng"]
   }

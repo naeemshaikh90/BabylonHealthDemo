@@ -8,21 +8,26 @@
 
 import Foundation
 import ObjectMapper
+import RealmSwift
 
-struct Comment {
-  var body : String!
-  var email : String!
-  var id : Int!
-  var name : String!
-  var postId : Int!
+class Comment: Object {
+  dynamic var body : String = ""
+  dynamic var email : String = ""
+  dynamic var id : Int = 0
+  dynamic var name : String = ""
+  dynamic var postId : Int = 0
+  
+  required convenience init(map: Map) {
+    self.init()
+  }
 }
 
 extension Comment: Mappable {
-  init?(map: Map) {
-    
+  override static func primaryKey() -> String? {
+    return "id"
   }
   
-  mutating func mapping(map: Map) {
+  func mapping(map: Map) {
     body    <- map["body"]
     email   <- map["email"]
     id      <- map["id"]

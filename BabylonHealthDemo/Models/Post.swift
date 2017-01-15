@@ -8,20 +8,25 @@
 
 import Foundation
 import ObjectMapper
+import RealmSwift
 
-struct Post {
-  var userId: Int = 0
-  var id: Int = 0
-  var title: String = ""
-  var body: String = ""
+class Post: Object {
+  dynamic var userId: Int = 0
+  dynamic var id: Int = 0
+  dynamic var title: String = ""
+  dynamic var body: String = ""
+  
+  required convenience init(map: Map) {
+    self.init()
+  }
 }
 
 extension Post: Mappable {
-  init?(map: Map) {
-    
+  override static func primaryKey() -> String? {
+    return "id"
   }
   
-  mutating func mapping(map: Map) {
+  func mapping(map: Map) {
     userId  <- map["userId"]
     id      <- map["id"]
     title   <- map["title"]
