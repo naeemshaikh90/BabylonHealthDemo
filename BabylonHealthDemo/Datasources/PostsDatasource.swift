@@ -8,8 +8,18 @@
 
 import UIKit
 
+private enum SectionType {
+  case PostCollectionCell
+}
+
+private struct Section {
+  var type: SectionType
+  var items: Int
+}
+
 final class PostsDatasource: NSObject, PostCollectionDatasource {
   var posts:[Post] = []
+  fileprivate var sections = [Section]()
   
   weak var collectionView: UICollectionView?
   weak var delegate: UICollectionViewDelegate?
@@ -19,19 +29,29 @@ final class PostsDatasource: NSObject, PostCollectionDatasource {
     self.collectionView = collectionView
     self.delegate = delegate
     super.init()
+    sections = [
+      Section(type: .PostCollectionCell, items: posts.count)
+    ]
     collectionView.register(cellType: PostCollectionCell.self)
     self.setupCollectionView()
   }
   
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return sections.count
+  }
+  
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return self.posts.count
+    return sections[section].items
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: PostCollectionCell.self)
-    let post = self.posts[indexPath.row]
-    cell.setup(post: post)
-    return cell
+    switch sections[indexPath.section].type {
+    case .PostCollectionCell:
+      let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: PostCollectionCell.self)
+      let post = self.posts[indexPath.row]
+      cell.setup(post: post)
+      return cell
+    }
   }
 }
 

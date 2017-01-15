@@ -11,12 +11,8 @@ import SVProgressHUD
 
 protocol PostDelegate {
   func didSelectPost(at index: IndexPath)
-}
-
-/*
-protocol CommentDelegate {
   func didSelectComment(at index: IndexPath)
-}*/
+}
 
 final class PostDetailController: UIViewController {
   var apiManager: BabylonAPICalls = BabylonAPIManger()
@@ -89,6 +85,10 @@ extension PostDetailController {
 
 extension PostDetailController: PostDelegate {
   func didSelectPost(at index: IndexPath) {
+    
+  }
+  
+  func didSelectComment(at index: IndexPath) {
     
   }
 }

@@ -8,9 +8,20 @@
 
 import UIKit
 
+private enum SectionType {
+  case PostCell
+  case CommentCell
+}
+
+private struct Section {
+  var type: SectionType
+  var items: Int
+}
+
 final class PostDatasource: NSObject, PostTableViewDatasource {
   var post: Post
   var comments: [Comment]
+  fileprivate var sections = [Section]()
   
   weak var tableView: UITableView?
   weak var delegate: UITableViewDelegate?
@@ -21,29 +32,31 @@ final class PostDatasource: NSObject, PostTableViewDatasource {
     self.tableView = tableView
     self.delegate = delegate
     super.init()
+    sections = [
+      Section(type: .PostCell, items: 1),
+      Section(type: .CommentCell, items: comments.count)
+    ]
     tableView.register(cellType: PostCell.self)
     tableView.register(cellType: CommentCell.self)
     self.setupTableView()
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
-    return 2
+    return sections.count
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if section == 0 {
-      return 1
-    } else {
-      return comments.count
-    }
+    return sections[section].items
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    if indexPath.section == 0 {
+    switch sections[indexPath.section].type {
+    case .PostCell:
       let cell = tableView.dequeueReusableCell(for: indexPath, cellType: PostCell.self)
       cell.setup(post: post)
       return cell
-    } else {
+      
+    case .CommentCell:
       let cell = tableView.dequeueReusableCell(for: indexPath, cellType: CommentCell.self)
       let comment = self.comments[indexPath.row]
       cell.setup(comment: comment)
@@ -60,11 +73,7 @@ class PostTableDelegate: NSObject, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-    if indexPath.section == 0 {
-      return PostCell.estimatedHeight()
-    } else {
-      return CommentCell.estimatedHeight()
-    }
+    return PostCell.estimatedHeight()
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -72,6 +81,10 @@ class PostTableDelegate: NSObject, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    delegate.didSelectPost(at: indexPath)
+    if indexPath.section == 0 {
+      delegate.didSelectPost(at: indexPath)
+    } else {
+      delegate.didSelectComment(at: indexPath)
+    }
   }
 }
