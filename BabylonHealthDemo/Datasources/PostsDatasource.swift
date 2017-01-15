@@ -62,14 +62,13 @@ class PostCollectionDelegate: NSObject, UICollectionViewDelegate, UICollectionVi
     self.delegate = delegate
   }
   
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    delegate.didSelectPost(at: indexPath)
-  }
-  
-  
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let width = collectionView.bounds.size.width
     return PostCollectionCell.size(for: width)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    delegate.didSelectPost(at: indexPath)
   }
 }
 

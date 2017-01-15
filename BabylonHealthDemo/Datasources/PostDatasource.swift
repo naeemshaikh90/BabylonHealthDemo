@@ -81,6 +81,7 @@ class PostTableDelegate: NSObject, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //To Do : Improve by removing static value
     if indexPath.section == 0 {
       delegate.didSelectPost(at: indexPath)
     } else {
