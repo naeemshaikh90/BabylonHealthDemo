@@ -14,6 +14,8 @@ target 'BabylonHealthDemo' do
    pod 'Reusable'
    pod 'SVProgressHUD'
    pod 'RealmSwift'
+   pod 'Reachability', :git => 'https://github.com/ashfurrow/Reachability.git', :branch => 'frameworks'
+   pod 'SwifterSwift'
 
   target 'BabylonHealthDemoTests' do
     inherit! :search_paths
@@ -21,7 +23,6 @@ target 'BabylonHealthDemo' do
     
     pod 'Quick'
     pod 'Nimble'
-    pod 'Fakery'
     pod 'ObjectMapper'
     pod 'RealmSwift'
   end

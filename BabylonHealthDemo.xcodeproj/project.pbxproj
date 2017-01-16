@@ -22,6 +22,7 @@
 		F709A88C1E260CB700EBF35D /* PostDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F709A88B1E260CB700EBF35D /* PostDatasource.swift */; };
 		F709A88F1E260D9200EBF35D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F709A88D1E260D9200EBF35D /* PostCell.swift */; };
 		F709A8901E260D9200EBF35D /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F709A88E1E260D9200EBF35D /* PostCell.xib */; };
+		F715FC631E2CA3F600757A35 /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715FC621E2CA3F600757A35 /* CommonUtility.swift */; };
 		F74EB5631E27A923007C59B0 /* PostCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EB5611E27A923007C59B0 /* PostCollectionCell.swift */; };
 		F74EB5641E27A923007C59B0 /* PostCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F74EB5621E27A923007C59B0 /* PostCollectionCell.xib */; };
 		F74EB5661E27AB99007C59B0 /* PostsCollectionDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74EB5651E27AB99007C59B0 /* PostsCollectionDatasource.swift */; };
@@ -71,6 +72,7 @@
 		F709A88B1E260CB700EBF35D /* PostDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDatasource.swift; sourceTree = "<group>"; };
 		F709A88D1E260D9200EBF35D /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		F709A88E1E260D9200EBF35D /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		F715FC621E2CA3F600757A35 /* CommonUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
 		F74EB5611E27A923007C59B0 /* PostCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollectionCell.swift; sourceTree = "<group>"; };
 		F74EB5621E27A923007C59B0 /* PostCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCollectionCell.xib; sourceTree = "<group>"; };
 		F74EB5651E27AB99007C59B0 /* PostsCollectionDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsCollectionDatasource.swift; sourceTree = "<group>"; };
@@ -182,6 +184,14 @@
 			path = Datasources;
 			sourceTree = "<group>";
 		};
+		F715FC611E2CA3E000757A35 /* CommonUtility */ = {
+			isa = PBXGroup;
+			children = (
+				F715FC621E2CA3F600757A35 /* CommonUtility.swift */,
+			);
+			path = CommonUtility;
+			sourceTree = "<group>";
+		};
 		F779C33D1E25E43D008BBB2A = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				F779C3691E25ECCF008BBB2A /* AppDelegate */,
+				F715FC611E2CA3E000757A35 /* CommonUtility */,
 				F779C36B1E25ECCF008BBB2A /* Cells */,
 				F779C36C1E25ECCF008BBB2A /* Controllers */,
 				F709A8801E26073000EBF35D /* Datasources */,
@@ -539,6 +550,7 @@
 				F7A18D311E28AE8B008F9E09 /* Comment.swift in Sources */,
 				F74EB5661E27AB99007C59B0 /* PostsCollectionDatasource.swift in Sources */,
 				F709A88C1E260CB700EBF35D /* PostDatasource.swift in Sources */,
+				F715FC631E2CA3F600757A35 /* CommonUtility.swift in Sources */,
 				F709A87F1E26043A00EBF35D /* Post.swift in Sources */,
 				F7896B6D1E265C0000AC686B /* PostController.swift in Sources */,
 				F709A88F1E260D9200EBF35D /* PostCell.swift in Sources */,

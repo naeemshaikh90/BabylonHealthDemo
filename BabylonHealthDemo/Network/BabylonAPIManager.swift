@@ -53,7 +53,8 @@ extension BabylonAPIManger {
           completion(parsedObject)
           additionalSteps?()
         case.error(let error):
-          print(error)
+          //print(error)
+          CommonUtility.showError(error)
           completion(nil)
         default:
           break
@@ -77,7 +78,8 @@ extension BabylonAPIManger {
           completion(parsedArray)
           additionalSteps?()
         case .error(let error):
-          print(error)
+          //print(error)
+          CommonUtility.showError(error)
           completion(nil)
         default:
           break
@@ -94,7 +96,7 @@ extension BabylonAPIManger {
         }
       }
     } catch let error as NSError {
-      print(error.localizedDescription)
+      CommonUtility.showError(error)
     }
   }
 }

@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (4.2.0)
-  - Fakery (2.0.0)
   - Moya (8.0.0):
     - Moya/Core (= 8.0.0)
   - Moya-ObjectMapper/Core (2.3):
@@ -19,6 +18,7 @@ PODS:
   - Nimble (5.1.1)
   - ObjectMapper (2.2.2)
   - Quick (1.0.0)
+  - Reachability (3.1.1)
   - Realm (2.2.0):
     - Realm/Headers (= 2.2.0)
   - Realm/Headers (2.2.0)
@@ -32,47 +32,56 @@ PODS:
   - Reusable/View (3.0.1)
   - RxSwift (3.1.0)
   - SVProgressHUD (2.1.2)
+  - SwifterSwift (1.4.8)
   - SwiftGen (4.1.0)
 
 DEPENDENCIES:
-  - Fakery
   - Moya
   - Moya-ObjectMapper/RxSwift (from `https://github.com/ivanbruel/Moya-ObjectMapper`)
   - Moya/RxSwift
   - Nimble
   - ObjectMapper
   - Quick
+  - Reachability (from `https://github.com/ashfurrow/Reachability.git`, branch `frameworks`)
   - RealmSwift
   - Reusable
   - RxSwift
   - SVProgressHUD
+  - SwifterSwift
   - SwiftGen
 
 EXTERNAL SOURCES:
   Moya-ObjectMapper:
     :git: https://github.com/ivanbruel/Moya-ObjectMapper
+  Reachability:
+    :branch: frameworks
+    :git: https://github.com/ashfurrow/Reachability.git
 
 CHECKOUT OPTIONS:
   Moya-ObjectMapper:
     :commit: 7e56b363e71d70b3c2c1aff4e909bcf92a05c20d
     :git: https://github.com/ivanbruel/Moya-ObjectMapper
+  Reachability:
+    :commit: 6db8c29565c319f59174dd63e4b1ac5b471d133a
+    :git: https://github.com/ashfurrow/Reachability.git
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
-  Fakery: 97b99c23937d2e025d9135c75e2b17351ccd5031
   Moya: 850a166ab8241bd1c1cea6dbe012e3a2ad62944a
   Moya-ObjectMapper: 1d2799d27c1173cb8c95c606a44fbd218526fd06
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
+  Reachability: 5b69def55ffa04d6f9425a6da1f47338b60557b2
   Realm: d95b8fb34c83f1e764b66d319277a62c2b6e4bf5
   RealmSwift: a4fa52d06e946a32ec746b3388374f742e6b8731
   Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
   Reusable: 5362d10271ca8316b104698a21e90498f47e8339
   RxSwift: 83ff553e7593fdfdcb2562933a64c0284dffdadc
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  SwifterSwift: 4a8ca4197d806a4b76af4873441332a14b11fb14
   SwiftGen: d29fd8b7aa52092411d415fb09d0abd3d79ea1a5
 
-PODFILE CHECKSUM: 8c8af9f42bc72f65c62a997ed8e6d286b75c9b45
+PODFILE CHECKSUM: 8aa71c7b52c4070fd87ed4645cd1f8e5f89b4f23
 
 COCOAPODS: 1.1.1

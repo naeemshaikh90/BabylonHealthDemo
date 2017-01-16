@@ -30,7 +30,6 @@ final class PostDetailController: UIViewController {
 extension PostDetailController {
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.tableView.isHidden = true
     if post != nil {
       fetchSaveAuthors()
       if users.isEmpty {
@@ -47,20 +46,24 @@ extension PostDetailController {
 
 extension PostDetailController {
   func fetchComments() {
-    if let post = post {
-      SVProgressHUD.show()
-      apiManager.comments() { comments in
-        SVProgressHUD.dismiss()
-        if let comments = comments {
-          var postComments: [Comment] = []
-          for comment in comments {
-            if comment.postId == post.id {
-              postComments.append(comment)
+    if CommonUtility.isConnected() {
+      if let post = post {
+        SVProgressHUD.show()
+        apiManager.comments() { comments in
+          SVProgressHUD.dismiss()
+          if let comments = comments {
+            var postComments: [Comment] = []
+            for comment in comments {
+              if comment.postId == post.id {
+                postComments.append(comment)
+              }
             }
+            self.setupPostView(with: post, comments: postComments)
           }
-          self.setupPostView(with: post, comments: postComments)
         }
       }
+    } else {
+      CommonUtility.showNotConnected()
     }
   }
   
@@ -82,21 +85,25 @@ extension PostDetailController {
         self.setupPostView(with: post, comments: postComments)
       }
     } catch let error as NSError {
-      print(error.localizedDescription)
+      CommonUtility.showError(error)
     }
   }
   
   func fetchAuthors() {
-    if let post = post {
-      apiManager.users() { users in
-        if let users = users {
-          for user in users {
-            if user.id == post.userId {
-              self.navigationItem.title = user.name
+    if CommonUtility.isConnected() {
+      if let post = post {
+        apiManager.users() { users in
+          if let users = users {
+            for user in users {
+              if user.id == post.userId {
+                self.navigationItem.title = user.name
+              }
             }
           }
         }
       }
+    } else {
+      CommonUtility.showNotConnected()
     }
   }
   
@@ -116,14 +123,13 @@ extension PostDetailController {
         }
       }
     } catch let error as NSError {
-      print(error.localizedDescription)
+      CommonUtility.showError(error)
     }
   }
 }
 
 extension PostDetailController {
   func setupPostView(with post: Post, comments: [Comment]) {
-    self.tableView.isHidden = false
     tableDelegate = PostTableDelegate(self)
     tableDatasource = PostDatasource(post: post,
                                      comments: comments,
