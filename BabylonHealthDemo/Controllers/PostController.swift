@@ -58,18 +58,9 @@ extension PostController {
       print(error.localizedDescription)
     }
   }
-  
-  func deteteAllPosts() {
-    do {
-      let realm = try Realm()
-      try realm.write {
-        realm.deleteAll()
-      }
-    } catch let error as NSError {
-      print(error.localizedDescription)
-    }
-  }
-  
+}
+
+extension PostController {
   func setupCollectionView(with posts: [Post]) {
     self.posts = posts
     self.collectionView.isHidden = false

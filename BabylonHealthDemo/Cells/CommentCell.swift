@@ -10,7 +10,6 @@ import UIKit
 import Reusable
 
 final class CommentCell: UITableViewCell, NibReusable {
-  
   @IBOutlet weak var commentTitle: UILabel!
   @IBOutlet weak var commentEmail: UILabel!
   @IBOutlet weak var commentBody: UILabel!

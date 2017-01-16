@@ -18,7 +18,6 @@ protocol PostDelegate {
 final class PostDetailController: UIViewController {
   var apiManager: BabylonAPICalls = BabylonAPIManger()
   var post: Post?
-  var user: User?
   var users: [User] = []
   var comments: [Comment] = []
   
@@ -33,10 +32,9 @@ extension PostDetailController {
     super.viewDidLoad()
     self.tableView.isHidden = true
     if post != nil {
-      self.tableView.isHidden = false
-      fetchSaveAuthor()
-      if user == nil {
-        fetchAuthor()
+      fetchSaveAuthors()
+      if users.isEmpty {
+        fetchAuthors()
       }
       
       fetchSaveComments()
@@ -88,34 +86,6 @@ extension PostDetailController {
     }
   }
   
-  func fetchAuthor() {
-    if let post = post {
-      apiManager.user(userId: post.userId) { user in
-        if let user = user {
-          self.navigationItem.title = user.name
-        }
-      }
-    }
-  }
-  
-  func fetchSaveAuthor() {
-    do {
-      let realm = try Realm()
-      let offlineUsers = realm.objects(User.self)
-      for offlineUser in offlineUsers {
-        if offlineUser.id == post?.userId {
-          user = offlineUser
-        }
-      }
-      
-      if let user = user {
-        self.navigationItem.title = user.name
-      }
-    } catch let error as NSError {
-      print(error.localizedDescription)
-    }
-  }
-  
   func fetchAuthors() {
     if let post = post {
       apiManager.users() { users in
@@ -129,10 +99,31 @@ extension PostDetailController {
       }
     }
   }
+  
+  func fetchSaveAuthors() {
+    do {
+      let realm = try Realm()
+      let offlineUsers = realm.objects(User.self)
+      for offlineUser in offlineUsers {
+        users.append(offlineUser)
+      }
+      
+      if let post = post {
+        for user in users {
+          if user.id == post.userId {
+            self.navigationItem.title = user.name
+          }
+        }
+      }
+    } catch let error as NSError {
+      print(error.localizedDescription)
+    }
+  }
 }
 
 extension PostDetailController {
   func setupPostView(with post: Post, comments: [Comment]) {
+    self.tableView.isHidden = false
     tableDelegate = PostTableDelegate(self)
     tableDatasource = PostDatasource(post: post,
                                      comments: comments,
