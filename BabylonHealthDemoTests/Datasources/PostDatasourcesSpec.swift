@@ -37,7 +37,7 @@ class PostDatasourceSpec: QuickSpec {
       it("should have a cell of expected type") {
         let indexPath = IndexPath(row: 0, section: 0)
         let cell = controller.collectionDatasource!.collectionView(controller.collectionView, cellForItemAt: indexPath)
-        expect(cell.isKind(of: PostCell.self)).to(beTruthy())
+        expect(cell.isKind(of: PostCollectionCell.self)).to(beTruthy())
       }
       
       it("should have a configured cell") {
@@ -47,7 +47,7 @@ class PostDatasourceSpec: QuickSpec {
         expect(name).to(equal(post.title))
       }
       
-      it("should have the right numberOfRowsInSection") {
+      it("should have the right numberOfItemsInSection") {
         let count = controller.collectionDatasource!.collectionView(controller.collectionView, numberOfItemsInSection: 0)
         expect(count).to(equal(1))
       }
