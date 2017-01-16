@@ -12,10 +12,22 @@ import Nimble
 @testable import BabylonHealthDemo
 
 struct BabylonAPICallsMock: BabylonAPICalls {
-  let post: [BabylonHealthDemo.Post]
+  let posts: [BabylonHealthDemo.Post]
   
   func posts(completion: @escaping ([Post]?) -> Void) {
-    completion(post)
+    completion(posts)
+  }
+  
+  func users(completion: @escaping ([User]?) -> Void) {
+    
+  }
+  
+  func user(userId: Int, completion: @escaping (User?) -> Void) {
+    
+  }
+  
+  func comments(completion: @escaping ([Comment]?) -> Void) {
+    
   }
 }
 
@@ -29,7 +41,7 @@ class PostControllerSpec: QuickSpec {
         let testBundle = Bundle(for: type(of: self))
         let mockLoader = MockLoader(file: "Post", in: testBundle)
         let post = (mockLoader?.map(to: Post.self))!
-        apiMock = BabylonAPICallsMock(post: [post])
+        apiMock = BabylonAPICallsMock(posts: [post])
         
         controller = Storyboard.Main.postControllerScene.viewController() as! PostController
         controller.apiManager = apiMock
@@ -41,10 +53,10 @@ class PostControllerSpec: QuickSpec {
       it("should have expected props setup") {
         controller.viewDidLoad()
         expect(controller.apiManager).toNot(beNil())
-        expect(controller.tableDatasource).toNot(beNil())
-        expect(controller.tableDelegate).toNot(beNil())
+        expect(controller.collectionDatasource).toNot(beNil())
+        expect(controller.collectionDelegate).toNot(beNil())
         expect(controller.posts).toNot(beNil())
-        expect(controller.tableView).toNot(beNil())
+        expect(controller.collectionView).toNot(beNil())
       }
     }
   }

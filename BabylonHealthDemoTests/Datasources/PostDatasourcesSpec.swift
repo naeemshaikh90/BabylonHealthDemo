@@ -22,7 +22,7 @@ class PostDatasourceSpec: QuickSpec {
         let mockLoader = MockLoader(file: "Post", in: testBundle)
         post = (mockLoader?.map(to: Post.self))!
         
-        let apiMock = BabylonAPICallsMock(post: [post])
+        let apiMock = BabylonAPICallsMock(posts: [post])
         controller = Storyboard.Main.postControllerScene.viewController() as! PostController
         controller.apiManager = apiMock
         
@@ -31,24 +31,24 @@ class PostDatasourceSpec: QuickSpec {
       }
       
       it("should have a valid datasource") {
-        expect(controller.tableDatasource).toNot(beNil())
+        expect(controller.collectionDatasource).toNot(beNil())
       }
       
       it("should have a cell of expected type") {
         let indexPath = IndexPath(row: 0, section: 0)
-        let cell = controller.tableDatasource!.tableView(controller.tableView, cellForRowAt: indexPath)
+        let cell = controller.collectionDatasource!.collectionView(controller.collectionView, cellForItemAt: indexPath)
         expect(cell.isKind(of: PostCell.self)).to(beTruthy())
       }
       
       it("should have a configured cell") {
         let indexPath = IndexPath(row: 0, section: 0)
-        let cell = controller.tableDatasource!.tableView(controller.tableView, cellForRowAt: indexPath) as! PostCell
+        let cell = controller.collectionDatasource!.collectionView(controller.collectionView, cellForItemAt: indexPath) as! PostCollectionCell
         let name = cell.postTitle.text!
         expect(name).to(equal(post.title))
       }
       
       it("should have the right numberOfRowsInSection") {
-        let count = controller.tableDatasource!.tableView(controller.tableView, numberOfRowsInSection: 0)
+        let count = controller.collectionDatasource!.collectionView(controller.collectionView, numberOfItemsInSection: 0)
         expect(count).to(equal(1))
       }
     }
