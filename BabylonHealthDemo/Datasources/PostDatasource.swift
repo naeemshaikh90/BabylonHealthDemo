@@ -52,16 +52,24 @@ final class PostDatasource: NSObject, PostTableViewDatasource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     switch sections[indexPath.section].type {
     case .PostCell:
-      let cell = tableView.dequeueReusableCell(for: indexPath, cellType: PostCell.self)
-      cell.setup(post: post)
-      return cell
+      return postCellAt(indexPath)
       
     case .CommentCell:
-      let cell = tableView.dequeueReusableCell(for: indexPath, cellType: CommentCell.self)
-      let comment = self.comments[indexPath.row]
-      cell.setup(comment: comment)
-      return cell
+      return commentCellAt(indexPath)
     }
+  }
+  
+  func postCellAt(_ indexPath: IndexPath) -> PostCell {
+    let cell = self.tableView!.dequeueReusableCell(for: indexPath, cellType: PostCell.self)
+    cell.setup(post: post)
+    return cell
+  }
+  
+  func commentCellAt(_ indexPath: IndexPath) -> CommentCell {
+    let cell = self.tableView!.dequeueReusableCell(for: indexPath, cellType: CommentCell.self)
+    let comment = self.comments[indexPath.row]
+    cell.setup(comment: comment)
+    return cell
   }
 }
 
@@ -81,7 +89,7 @@ class PostTableDelegate: NSObject, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //TODO: : Improve by removing static value
+    //TODO: Improve by removing static value
     if indexPath.section == 0 {
       delegate.didSelectPost(at: indexPath)
     } else {

@@ -47,11 +47,15 @@ final class PostsDatasource: NSObject, PostCollectionDatasource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     switch sections[indexPath.section].type {
     case .PostCollectionCell:
-      let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: PostCollectionCell.self)
-      let post = self.posts[indexPath.row]
-      cell.setup(post: post)
-      return cell
+      return postCollectionCellAt(indexPath)
     }
+  }
+  
+  func postCollectionCellAt(_ indexPath: IndexPath) -> PostCollectionCell {
+    let cell = self.collectionView!.dequeueReusableCell(for: indexPath, cellType: PostCollectionCell.self)
+    let post = self.posts[indexPath.row]
+    cell.setup(post: post)
+    return cell
   }
 }
 
@@ -71,4 +75,3 @@ class PostCollectionDelegate: NSObject, UICollectionViewDelegate, UICollectionVi
     delegate.didSelectPost(at: indexPath)
   }
 }
-

@@ -38,11 +38,8 @@ struct BabylonAPIManger {
 }
 
 extension BabylonAPIManger {
-  typealias AdditionalStepsAction = (() -> ())
-  
   fileprivate func requestObject<T: Mappable>(_ token: BabylonAPI, type: T.Type,
-                                 completion: @escaping (T?) -> Void,
-                                 additionalSteps: AdditionalStepsAction? = nil) {
+                                 completion: @escaping (T?) -> Void) {
     provider.request(token)
       .debug()
       .mapObject(T.self)
@@ -51,9 +48,7 @@ extension BabylonAPIManger {
         case .next(let parsedObject):
           self.saveOfflineData([parsedObject])
           completion(parsedObject)
-          additionalSteps?()
         case.error(let error):
-          //print(error)
           CommonUtility.showError(error)
           completion(nil)
         default:
@@ -63,8 +58,7 @@ extension BabylonAPIManger {
   }
   
   fileprivate func requestArray<T: Mappable>(_ token: BabylonAPI, type: T.Type,
-                                completion: @escaping ([T]?) -> Void,
-                                additionalSteps: AdditionalStepsAction? = nil) {
+                                completion: @escaping ([T]?) -> Void) {
     provider.request(token)
       .debug()
       .map { respose -> Response in
@@ -76,9 +70,7 @@ extension BabylonAPIManger {
         case .next(let parsedArray):
           self.saveOfflineData(parsedArray)
           completion(parsedArray)
-          additionalSteps?()
         case .error(let error):
-          //print(error)
           CommonUtility.showError(error)
           completion(nil)
         default:

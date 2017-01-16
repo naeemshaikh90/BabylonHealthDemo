@@ -21,6 +21,9 @@ final class PostDetailController: UIViewController {
   var users: [User] = []
   var comments: [Comment] = []
   
+  var refreshControl = UIRefreshControl()
+  var dateFormatter = DateFormatter()
+  
   var tableDatasource: PostDatasource?
   var tableDelegate: PostTableDelegate?
   
@@ -30,6 +33,10 @@ final class PostDetailController: UIViewController {
 extension PostDetailController {
   override func viewDidLoad() {
     super.viewDidLoad()
+    fetchData()
+  }
+  
+  func fetchData() {
     if post != nil {
       fetchSaveAuthors()
       if users.isEmpty {
@@ -45,21 +52,49 @@ extension PostDetailController {
 }
 
 extension PostDetailController {
+  func setupPullToRefresh() {
+    // set up the refresh control
+    setupDateFormatter()
+    self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+    self.refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: UIControlEvents.valueChanged)
+    self.tableView?.addSubview(refreshControl)
+  }
+  
+  func setupDateFormatter() {
+    // set up date format
+    self.dateFormatter.dateStyle = DateFormatter.Style.short
+    self.dateFormatter.timeStyle = DateFormatter.Style.long
+  }
+  
+  func updatePullToRefresh() {
+    // update "last updated" title for refresh control
+    let now = Date()
+    let updateString = "Last Updated at " + self.dateFormatter.string(from: now)
+    self.refreshControl.attributedTitle = NSAttributedString(string: updateString)
+  }
+  
+  func dismissPullToRefresh() {
+    // tell refresh control it can stop showing up now
+    if self.refreshControl.isRefreshing {
+      self.refreshControl.endRefreshing()
+    }
+  }
+  
+  func refresh(sender: AnyObject) {
+    fetchAuthors()
+    fetchComments()
+  }
+}
+
+extension PostDetailController {
   func fetchComments() {
     if CommonUtility.isConnected() {
-      if let post = post {
-        SVProgressHUD.show()
-        apiManager.comments() { comments in
-          SVProgressHUD.dismiss()
-          if let comments = comments {
-            var postComments: [Comment] = []
-            for comment in comments {
-              if comment.postId == post.id {
-                postComments.append(comment)
-              }
-            }
-            self.setupPostView(with: post, comments: postComments)
-          }
+      SVProgressHUD.show()
+      apiManager.comments() { comments in
+        SVProgressHUD.dismiss()
+        if let comments = comments {
+          self.comments = comments
+          self.fetchPostWiseComments()
         }
       }
     } else {
@@ -74,32 +109,32 @@ extension PostDetailController {
       for offlineComment in offlineComments {
         comments.append(offlineComment)
       }
-      
-      if let post = post {
-        var postComments: [Comment] = []
-        for comment in offlineComments {
-          if comment.postId == post.id {
-            postComments.append(comment)
-          }
-        }
-        self.setupPostView(with: post, comments: postComments)
-      }
+      fetchPostWiseComments()
     } catch let error as NSError {
       CommonUtility.showError(error)
     }
   }
   
+  func fetchPostWiseComments() {
+    if let post = post {
+      var postComments: [Comment] = []
+      for comment in comments {
+        if comment.postId == post.id {
+          postComments.append(comment)
+        }
+      }
+      self.setupPostView(with: post, comments: postComments)
+    }
+  }
+}
+
+extension PostDetailController {
   func fetchAuthors() {
     if CommonUtility.isConnected() {
-      if let post = post {
-        apiManager.users() { users in
-          if let users = users {
-            for user in users {
-              if user.id == post.userId {
-                self.navigationItem.title = user.name
-              }
-            }
-          }
+      apiManager.users() { users in
+        if let users = users {
+          self.users = users
+          self.fetchPostAuthor()
         }
       }
     } else {
@@ -114,16 +149,19 @@ extension PostDetailController {
       for offlineUser in offlineUsers {
         users.append(offlineUser)
       }
-      
-      if let post = post {
-        for user in users {
-          if user.id == post.userId {
-            self.navigationItem.title = user.name
-          }
-        }
-      }
+      fetchPostAuthor()
     } catch let error as NSError {
       CommonUtility.showError(error)
+    }
+  }
+  
+  func fetchPostAuthor() {
+    if let post = post {
+      for user in users {
+        if user.id == post.userId {
+          self.navigationItem.title = user.name
+        }
+      }
     }
   }
 }
