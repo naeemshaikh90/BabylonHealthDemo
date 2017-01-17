@@ -1,4 +1,11 @@
+<p align="center">
+<img src="/BabylonHealthDemo/Resources/Assets.xcassets/AppIcon.appiconset/BabylonDemo_83%402x.png">
+</p>
+
 # BabylonHealthDemo
+
+[![Language](https://img.shields.io/badge/language-Swift%203.0-orange.svg)](https://swift.org)
+[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](/Licence)
 
 ### Requirements 
 
