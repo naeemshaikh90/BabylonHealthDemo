@@ -25,6 +25,14 @@ class PostSpec: QuickSpec {
         expect(post).toNot(beNil())
       }
       
+      it("should have a userId") {
+        expect(post.userId).toNot(beNil())
+      }
+      
+      it("should have a id") {
+        expect(post.id).toNot(beNil())
+      }
+      
       it("should have a title") {
         expect(post.title).toNot(beNil())
       }

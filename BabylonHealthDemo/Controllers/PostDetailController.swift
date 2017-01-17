@@ -47,6 +47,8 @@ extension PostDetailController {
       if comments.isEmpty {
         fetchComments()
       }
+    } else {
+      print("post is empty, post details can't be fetched!")
     }
   }
 }

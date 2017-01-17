@@ -11,7 +11,6 @@ import ObjectMapper
 @testable import BabylonHealthDemo
 
 struct MockLoader {
-  
   let data: Data
   let json: String
   

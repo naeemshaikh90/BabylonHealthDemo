@@ -36,10 +36,22 @@
 		F7A18D311E28AE8B008F9E09 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A18D301E28AE8B008F9E09 /* Comment.swift */; };
 		F7A18D341E28B15C008F9E09 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A18D321E28B15C008F9E09 /* CommentCell.swift */; };
 		F7A18D351E28B15C008F9E09 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7A18D331E28B15C008F9E09 /* CommentCell.xib */; };
-		F7B4B9D11E27547400EB6A18 /* PostDatasourcesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4B9D01E27547400EB6A18 /* PostDatasourcesSpec.swift */; };
+		F7B4B9D11E27547400EB6A18 /* PostsDatasourcesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4B9D01E27547400EB6A18 /* PostsDatasourcesSpec.swift */; };
 		F7B4B9D71E27603100EB6A18 /* PostDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4B9D61E27603100EB6A18 /* PostDetailController.swift */; };
 		F7B4B9DC1E27633000EB6A18 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4B9DB1E27633000EB6A18 /* Storyboard.swift */; };
 		F7B4B9DF1E27664600EB6A18 /* PostControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4B9DE1E27664600EB6A18 /* PostControllerSpec.swift */; };
+		F7F4BADA1E2DD26900EDEE01 /* Comment.json in Resources */ = {isa = PBXBuildFile; fileRef = F7F4BAD91E2DD26900EDEE01 /* Comment.json */; };
+		F7F4BADC1E2DD28A00EDEE01 /* User.json in Resources */ = {isa = PBXBuildFile; fileRef = F7F4BADB1E2DD28A00EDEE01 /* User.json */; };
+		F7F4BADE1E2DD2E800EDEE01 /* CommentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4BADD1E2DD2E800EDEE01 /* CommentSpec.swift */; };
+		F7F4BAE01E2DD51900EDEE01 /* UserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4BADF1E2DD51900EDEE01 /* UserSpec.swift */; };
+		F7F4BAE41E2DDF7C00EDEE01 /* Address.json in Resources */ = {isa = PBXBuildFile; fileRef = F7F4BAE31E2DDF7C00EDEE01 /* Address.json */; };
+		F7F4BAE61E2DDFB100EDEE01 /* Geo.json in Resources */ = {isa = PBXBuildFile; fileRef = F7F4BAE51E2DDFB100EDEE01 /* Geo.json */; };
+		F7F4BAE81E2DDFD500EDEE01 /* Company.json in Resources */ = {isa = PBXBuildFile; fileRef = F7F4BAE71E2DDFD500EDEE01 /* Company.json */; };
+		F7F4BAEA1E2DE3C600EDEE01 /* AddressSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4BAE91E2DE3C600EDEE01 /* AddressSpec.swift */; };
+		F7F4BAEC1E2DE5A000EDEE01 /* GeoSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4BAEB1E2DE5A000EDEE01 /* GeoSpec.swift */; };
+		F7F4BAEE1E2DE62800EDEE01 /* CompanySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4BAED1E2DE62800EDEE01 /* CompanySpec.swift */; };
+		F7F4BAF01E2DE6C900EDEE01 /* PostDetailControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4BAEF1E2DE6C900EDEE01 /* PostDetailControllerSpec.swift */; };
+		F7F4BAF21E2DEE6F00EDEE01 /* PostDatasourcesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4BAF11E2DEE6F00EDEE01 /* PostDatasourcesSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,10 +102,22 @@
 		F7A18D301E28AE8B008F9E09 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		F7A18D321E28B15C008F9E09 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		F7A18D331E28B15C008F9E09 /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
-		F7B4B9D01E27547400EB6A18 /* PostDatasourcesSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDatasourcesSpec.swift; sourceTree = "<group>"; };
+		F7B4B9D01E27547400EB6A18 /* PostsDatasourcesSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsDatasourcesSpec.swift; sourceTree = "<group>"; };
 		F7B4B9D61E27603100EB6A18 /* PostDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailController.swift; sourceTree = "<group>"; };
 		F7B4B9DB1E27633000EB6A18 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		F7B4B9DE1E27664600EB6A18 /* PostControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostControllerSpec.swift; sourceTree = "<group>"; };
+		F7F4BAD91E2DD26900EDEE01 /* Comment.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Comment.json; sourceTree = "<group>"; };
+		F7F4BADB1E2DD28A00EDEE01 /* User.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = User.json; sourceTree = "<group>"; };
+		F7F4BADD1E2DD2E800EDEE01 /* CommentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentSpec.swift; sourceTree = "<group>"; };
+		F7F4BADF1E2DD51900EDEE01 /* UserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSpec.swift; sourceTree = "<group>"; };
+		F7F4BAE31E2DDF7C00EDEE01 /* Address.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Address.json; sourceTree = "<group>"; };
+		F7F4BAE51E2DDFB100EDEE01 /* Geo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Geo.json; sourceTree = "<group>"; };
+		F7F4BAE71E2DDFD500EDEE01 /* Company.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Company.json; sourceTree = "<group>"; };
+		F7F4BAE91E2DE3C600EDEE01 /* AddressSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressSpec.swift; sourceTree = "<group>"; };
+		F7F4BAEB1E2DE5A000EDEE01 /* GeoSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoSpec.swift; sourceTree = "<group>"; };
+		F7F4BAED1E2DE62800EDEE01 /* CompanySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanySpec.swift; sourceTree = "<group>"; };
+		F7F4BAEF1E2DE6C900EDEE01 /* PostDetailControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailControllerSpec.swift; sourceTree = "<group>"; };
+		F7F4BAF11E2DEE6F00EDEE01 /* PostDatasourcesSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDatasourcesSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +172,11 @@
 			isa = PBXGroup;
 			children = (
 				B462A1291E26882B00BC518D /* Post.json */,
+				F7F4BADB1E2DD28A00EDEE01 /* User.json */,
+				F7F4BAE31E2DDF7C00EDEE01 /* Address.json */,
+				F7F4BAE51E2DDFB100EDEE01 /* Geo.json */,
+				F7F4BAE71E2DDFD500EDEE01 /* Company.json */,
+				F7F4BAD91E2DD26900EDEE01 /* Comment.json */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -156,6 +185,11 @@
 			isa = PBXGroup;
 			children = (
 				B462A12B1E26886000BC518D /* PostSpec.swift */,
+				F7F4BADD1E2DD2E800EDEE01 /* CommentSpec.swift */,
+				F7F4BADF1E2DD51900EDEE01 /* UserSpec.swift */,
+				F7F4BAE91E2DE3C600EDEE01 /* AddressSpec.swift */,
+				F7F4BAEB1E2DE5A000EDEE01 /* GeoSpec.swift */,
+				F7F4BAED1E2DE62800EDEE01 /* CompanySpec.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,8 +200,8 @@
 				F709A87E1E26043A00EBF35D /* Post.swift */,
 				F709A8811E2608DC00EBF35D /* User.swift */,
 				F709A8831E2609B200EBF35D /* Address.swift */,
-				F709A8851E2609C000EBF35D /* Company.swift */,
 				F709A8871E260A5800EBF35D /* Geo.swift */,
+				F709A8851E2609C000EBF35D /* Company.swift */,
 				F7A18D301E28AE8B008F9E09 /* Comment.swift */,
 			);
 			path = Models;
@@ -295,7 +329,8 @@
 		F7B4B9CF1E27544400EB6A18 /* Datasources */ = {
 			isa = PBXGroup;
 			children = (
-				F7B4B9D01E27547400EB6A18 /* PostDatasourcesSpec.swift */,
+				F7B4B9D01E27547400EB6A18 /* PostsDatasourcesSpec.swift */,
+				F7F4BAF11E2DEE6F00EDEE01 /* PostDatasourcesSpec.swift */,
 			);
 			path = Datasources;
 			sourceTree = "<group>";
@@ -313,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				F7B4B9DE1E27664600EB6A18 /* PostControllerSpec.swift */,
+				F7F4BAEF1E2DE6C900EDEE01 /* PostDetailControllerSpec.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -422,6 +458,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B462A12A1E26882B00BC518D /* Post.json in Resources */,
+				F7F4BADC1E2DD28A00EDEE01 /* User.json in Resources */,
+				F7F4BAE41E2DDF7C00EDEE01 /* Address.json in Resources */,
+				F7F4BAE81E2DDFD500EDEE01 /* Company.json in Resources */,
+				F7F4BADA1E2DD26900EDEE01 /* Comment.json in Resources */,
+				F7F4BAE61E2DDFB100EDEE01 /* Geo.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,10 +607,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7F4BADE1E2DD2E800EDEE01 /* CommentSpec.swift in Sources */,
+				F7F4BAEA1E2DE3C600EDEE01 /* AddressSpec.swift in Sources */,
+				F7F4BAEE1E2DE62800EDEE01 /* CompanySpec.swift in Sources */,
 				F7B4B9DF1E27664600EB6A18 /* PostControllerSpec.swift in Sources */,
 				B462A1221E2683C100BC518D /* MockLoader.swift in Sources */,
 				B462A12C1E26886000BC518D /* PostSpec.swift in Sources */,
-				F7B4B9D11E27547400EB6A18 /* PostDatasourcesSpec.swift in Sources */,
+				F7F4BAF21E2DEE6F00EDEE01 /* PostDatasourcesSpec.swift in Sources */,
+				F7B4B9D11E27547400EB6A18 /* PostsDatasourcesSpec.swift in Sources */,
+				F7F4BAF01E2DE6C900EDEE01 /* PostDetailControllerSpec.swift in Sources */,
+				F7F4BAEC1E2DE5A000EDEE01 /* GeoSpec.swift in Sources */,
+				F7F4BAE01E2DD51900EDEE01 /* UserSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

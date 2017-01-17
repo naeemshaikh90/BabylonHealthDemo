@@ -22,10 +22,6 @@ struct BabylonAPICallsMock: BabylonAPICalls {
     
   }
   
-  func user(userId: Int, completion: @escaping (User?) -> Void) {
-    
-  }
-  
   func comments(completion: @escaping ([Comment]?) -> Void) {
     
   }
@@ -41,8 +37,8 @@ class PostControllerSpec: QuickSpec {
         let testBundle = Bundle(for: type(of: self))
         let mockLoader = MockLoader(file: "Post", in: testBundle)
         let post = (mockLoader?.map(to: Post.self))!
-        apiMock = BabylonAPICallsMock(posts: [post])
         
+        apiMock = BabylonAPICallsMock(posts: [post])
         controller = Storyboard.Main.postControllerScene.viewController() as! PostController
         controller.apiManager = apiMock
         

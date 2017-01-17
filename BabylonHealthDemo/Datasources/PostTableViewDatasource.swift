@@ -12,11 +12,11 @@ protocol PostTableViewDatasource: UITableViewDataSource {
   associatedtype P
   associatedtype C
   
-  var post:P {get}
-  var comments:[C] {get}
+  var post:P { get }
+  var comments:[C] { get }
   
-  weak var tableView: UITableView? {get}
-  weak var delegate: UITableViewDelegate? {get}
+  weak var tableView: UITableView? { get }
+  weak var delegate: UITableViewDelegate? { get }
   
   init(post: P, comments: [C], tableView: UITableView, delegate: UITableViewDelegate)
   

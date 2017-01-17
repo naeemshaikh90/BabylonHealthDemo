@@ -10,9 +10,9 @@ import UIKit
 
 protocol PostCollectionDatasource: UICollectionViewDataSource {
   associatedtype T
-  var posts:[T] {get}
-  weak var collectionView: UICollectionView? {get}
-  weak var delegate: UICollectionViewDelegate? {get}
+  var posts:[T] { get }
+  weak var collectionView: UICollectionView? { get }
+  weak var delegate: UICollectionViewDelegate? { get }
   
   init(posts: [T], collectionView: UICollectionView, delegate: UICollectionViewDelegate)
   
