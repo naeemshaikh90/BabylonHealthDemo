@@ -15,6 +15,7 @@ class Post: Object {
   dynamic var id: Int = 0
   dynamic var title: String = ""
   dynamic var body: String = ""
+  dynamic var timeSaved = Date()
   
   required convenience init(map: Map) {
     self.init()
@@ -27,9 +28,10 @@ extension Post: Mappable {
   }
   
   func mapping(map: Map) {
-    userId  <- map["userId"]
-    id      <- map["id"]
-    title   <- map["title"]
-    body    <- map["body"]
+    userId    <- map["userId"]
+    id        <- map["id"]
+    title     <- map["title"]
+    body      <- map["body"]
+    timeSaved <- map["timeSaved"]
   }
 }

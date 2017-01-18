@@ -11,14 +11,15 @@ import ObjectMapper
 import RealmSwift
 
 class User: Object {
-  var address: Address!
-  var company: Company!
+  dynamic var address: Address!
+  dynamic var company: Company!
   dynamic var email: String!
   dynamic var id: Int = 0
   dynamic var name: String!
   dynamic var phone: String!
   dynamic var username: String!
   dynamic var website: String!
+  dynamic var timeSaved = Date()
   
   required convenience init(map: Map) {
     self.init()
@@ -39,5 +40,6 @@ extension User: Mappable {
     phone     <- map["phone"]
     website   <- map["website"]
     company   <- map["company"]
+    timeSaved <- map["timeSaved"]
   }
 }

@@ -1,5 +1,5 @@
 //
-//  PostDatasourcesSpec.swift
+//  PostsDatasourcesSpec.swift
 //  BabylonHealthDemo
 //
 //  Created by Naeem Shaikh on 12/01/17.

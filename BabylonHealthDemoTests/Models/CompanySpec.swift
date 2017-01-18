@@ -36,6 +36,10 @@ class CompanySpec: QuickSpec {
       it("should have a name") {
         expect(company.name).toNot(beNil())
       }
+      
+      it("should have a timeSaved") {
+        expect(company.timeSaved).toNot(beNil())
+      }
     }
   }
 }

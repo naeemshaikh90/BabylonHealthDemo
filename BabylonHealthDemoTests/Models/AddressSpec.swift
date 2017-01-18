@@ -56,6 +56,10 @@ class AddressSpec: QuickSpec {
       it("should have a geo-lng") {
         expect(address.geo.lng).toNot(beNil())
       }
+      
+      it("should have a timeSaved") {
+        expect(address.timeSaved).toNot(beNil())
+      }
     }
   }
 }

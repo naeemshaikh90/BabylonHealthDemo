@@ -44,6 +44,10 @@ class CommentSpec: QuickSpec {
       it("should have a email") {
         expect(comment.email).toNot(beNil())
       }
+      
+      it("should have a timeSaved") {
+        expect(comment.timeSaved).toNot(beNil())
+      }
     }
   }
 }

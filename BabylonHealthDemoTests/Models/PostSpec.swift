@@ -40,6 +40,10 @@ class PostSpec: QuickSpec {
       it("should have a body") {
         expect(post.body).toNot(beNil())
       }
+      
+      it("should have a timeSaved") {
+        expect(post.timeSaved).toNot(beNil())
+      }
     }
   }
 }

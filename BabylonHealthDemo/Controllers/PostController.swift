@@ -21,6 +21,7 @@ final class PostController: UIViewController {
   
   var refreshControl = UIRefreshControl()
   var dateFormatter = DateFormatter()
+  var lastUpdate = Date()
   
   var collectionDatasource: PostsDatasource?
   var collectionDelegate:   PostCollectionDelegate?
@@ -42,21 +43,23 @@ extension PostController {
   func setupPullToRefresh() {
     // set up the refresh control
     setupDateFormatter()
-    self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+    updatePullToRefresh()
     self.refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: UIControlEvents.valueChanged)
     self.collectionView?.addSubview(refreshControl)
   }
   
   func setupDateFormatter() {
     // set up date format
-    self.dateFormatter.dateStyle = DateFormatter.Style.short
-    self.dateFormatter.timeStyle = DateFormatter.Style.long
+    self.dateFormatter.dateStyle = .short
+    self.dateFormatter.timeStyle = .long
   }
   
   func updatePullToRefresh() {
     // update "last updated" title for refresh control
-    let now = Date()
-    let updateString = "Last Updated at " + self.dateFormatter.string(from: now)
+    if let timeSaved = posts.first?.timeSaved {
+      self.lastUpdate = timeSaved
+    }
+    let updateString = "Last Updated at " + self.dateFormatter.string(from: lastUpdate)
     self.refreshControl.attributedTitle = NSAttributedString(string: updateString)
   }
   
@@ -78,7 +81,6 @@ extension PostController {
       SVProgressHUD.show()
       apiManager.posts() { posts in
         SVProgressHUD.dismiss()
-        self.updatePullToRefresh()
         self.dismissPullToRefresh()
         if let posts = posts {
           self.setupCollectionView(with: posts)
@@ -97,7 +99,10 @@ extension PostController {
       for offlinePost in offlinePosts {
         posts.append(offlinePost)
       }
-      self.setupCollectionView(with: posts)
+      
+      if !posts.isEmpty {
+        self.setupCollectionView(with: posts)
+      }
     } catch let error as NSError {
       CommonUtility.showError(error)
     }
@@ -106,7 +111,7 @@ extension PostController {
 
 extension PostController {
   func setupCollectionView(with posts: [Post]) {
-    self.posts = posts
+    self.updatePullToRefresh()
     collectionDelegate = PostCollectionDelegate(self)
     collectionDatasource = PostsDatasource(posts: posts,
                                            collectionView: self.collectionView,

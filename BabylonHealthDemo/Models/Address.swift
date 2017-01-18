@@ -11,11 +11,12 @@ import ObjectMapper
 import RealmSwift
 
 class Address: Object {
-  var geo: Geo!
+  dynamic var geo: Geo!
   dynamic var city: String = ""
   dynamic var street: String = ""
   dynamic var suite: String = ""
   dynamic var zipcode: String = ""
+  dynamic var timeSaved = Date()
   
   required convenience init(map: Map) {
     self.init()
@@ -24,10 +25,11 @@ class Address: Object {
 
 extension Address: Mappable {
   func mapping(map: Map) {
-    city    <- map["city"]
-    geo     <- map["geo"]
-    street  <- map["street"]
-    suite   <- map["suite"]
-    zipcode <- map["zipcode"]
+    city      <- map["city"]
+    geo       <- map["geo"]
+    street    <- map["street"]
+    suite     <- map["suite"]
+    zipcode   <- map["zipcode"]
+    timeSaved <- map["timeSaved"]
   }
 }

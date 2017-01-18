@@ -23,6 +23,7 @@ final class PostDetailController: UIViewController {
   
   var refreshControl = UIRefreshControl()
   var dateFormatter = DateFormatter()
+  var lastUpdate = Date()
   
   var tableDatasource: PostDatasource?
   var tableDelegate: PostTableDelegate?
@@ -34,6 +35,7 @@ extension PostDetailController {
   override func viewDidLoad() {
     super.viewDidLoad()
     fetchData()
+    setupPullToRefresh()
   }
   
   func fetchData() {
@@ -57,21 +59,23 @@ extension PostDetailController {
   func setupPullToRefresh() {
     // set up the refresh control
     setupDateFormatter()
-    self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+    updatePullToRefresh()
     self.refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: UIControlEvents.valueChanged)
     self.tableView?.addSubview(refreshControl)
   }
   
   func setupDateFormatter() {
     // set up date format
-    self.dateFormatter.dateStyle = DateFormatter.Style.short
-    self.dateFormatter.timeStyle = DateFormatter.Style.long
+    self.dateFormatter.dateStyle = .short
+    self.dateFormatter.timeStyle = .long
   }
   
   func updatePullToRefresh() {
     // update "last updated" title for refresh control
-    let now = Date()
-    let updateString = "Last Updated at " + self.dateFormatter.string(from: now)
+    if let timeSaved = comments.first?.timeSaved {
+      self.lastUpdate = timeSaved
+    }
+    let updateString = "Last Updated at " + self.dateFormatter.string(from: lastUpdate)
     self.refreshControl.attributedTitle = NSAttributedString(string: updateString)
   }
   
@@ -94,6 +98,7 @@ extension PostDetailController {
       SVProgressHUD.show()
       apiManager.comments() { comments in
         SVProgressHUD.dismiss()
+        self.dismissPullToRefresh()
         if let comments = comments {
           self.comments = comments
           self.fetchPostWiseComments()
@@ -125,7 +130,10 @@ extension PostDetailController {
           postComments.append(comment)
         }
       }
-      self.setupPostView(with: post, comments: postComments)
+      
+      if !postComments.isEmpty {
+        self.setupPostView(with: post, comments: postComments)
+      }
     }
   }
 }
@@ -134,6 +142,7 @@ extension PostDetailController {
   func fetchAuthors() {
     if CommonUtility.isConnected() {
       apiManager.users() { users in
+        self.dismissPullToRefresh()
         if let users = users {
           self.users = users
           self.fetchPostAuthor()
@@ -170,6 +179,7 @@ extension PostDetailController {
 
 extension PostDetailController {
   func setupPostView(with post: Post, comments: [Comment]) {
+    self.updatePullToRefresh()
     tableDelegate = PostTableDelegate(self)
     tableDatasource = PostDatasource(post: post,
                                      comments: comments,

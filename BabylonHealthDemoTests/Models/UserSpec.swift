@@ -96,6 +96,10 @@ class UserSpec: QuickSpec {
       it("should have a company-name") {
         expect(user.company.name).toNot(beNil())
       }
+      
+      it("should have a timeSaved") {
+        expect(user.timeSaved).toNot(beNil())
+      }
     }
   }
 }

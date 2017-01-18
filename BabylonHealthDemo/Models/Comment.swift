@@ -16,6 +16,7 @@ class Comment: Object {
   dynamic var id : Int = 0
   dynamic var name : String = ""
   dynamic var postId : Int = 0
+  dynamic var timeSaved = Date()
   
   required convenience init(map: Map) {
     self.init()
@@ -28,10 +29,11 @@ extension Comment: Mappable {
   }
   
   func mapping(map: Map) {
-    body    <- map["body"]
-    email   <- map["email"]
-    id      <- map["id"]
-    name    <- map["name"]
-    postId  <- map["postId"]
+    body      <- map["body"]
+    email     <- map["email"]
+    id        <- map["id"]
+    name      <- map["name"]
+    postId    <- map["postId"]
+    timeSaved <- map["timeSaved"]
   }
 }

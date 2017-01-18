@@ -14,6 +14,7 @@ class Company: Object {
   dynamic var bs: String = ""
   dynamic var catchPhrase: String = ""
   dynamic var name: String = ""
+  dynamic var timeSaved = Date()
   
   required convenience init(map: Map) {
     self.init()
@@ -25,5 +26,6 @@ extension Company: Mappable {
     bs          <- map["bs"]
     catchPhrase <- map["catchPhrase"]
     name        <- map["name"]
+    timeSaved   <- map["timeSaved"]
   }
 }

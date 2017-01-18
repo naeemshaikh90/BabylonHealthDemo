@@ -32,6 +32,10 @@ class GeoSpec: QuickSpec {
       it("should have a lng") {
         expect(geo.lng).toNot(beNil())
       }
+      
+      it("should have a timeSaved") {
+        expect(geo.timeSaved).toNot(beNil())
+      }
     }
   }
 }

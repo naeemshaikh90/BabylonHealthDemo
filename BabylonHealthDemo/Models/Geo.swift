@@ -13,6 +13,7 @@ import RealmSwift
 class Geo: Object {
   dynamic var lat: String = ""
   dynamic var lng: String = ""
+  dynamic var timeSaved = Date()
   
   required convenience init(map: Map) {
     self.init()
@@ -21,7 +22,8 @@ class Geo: Object {
 
 extension Geo: Mappable {
   func mapping(map: Map) {
-    lat <- map["lat"]
-    lng <- map["lng"]
+    lat       <- map["lat"]
+    lng       <- map["lng"]
+    timeSaved <- map["timeSaved"]
   }
 }
