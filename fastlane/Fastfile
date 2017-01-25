@@ -20,8 +20,5 @@ platform :ios do
       proj: "BabylonHealthDemo.xcodeproj",
       html: true
    )
-   gym(
-     # scheme: "BabylonHealthDemo"
-   )
  end
 end

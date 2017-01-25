@@ -1,90 +1,90 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <testsuites name='BabylonHealthDemoTests.xctest' tests='65' failures='0'>
   <testsuite name='BabylonHealthDemoTests.AddressSpec' tests='10' failures='0'>
-    <testcase classname='BabylonHealthDemoTests.AddressSpec' name='a_address__should_be_able_to_create_a_address_from_json' time='0.059'/>
-    <testcase classname='BabylonHealthDemoTests.AddressSpec' name='a_address__should_have_a_city' time='0.004'/>
+    <testcase classname='BabylonHealthDemoTests.AddressSpec' name='a_address__should_be_able_to_create_a_address_from_json' time='0.006'/>
+    <testcase classname='BabylonHealthDemoTests.AddressSpec' name='a_address__should_have_a_city' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.AddressSpec' name='a_address__should_have_a_valid_city' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.AddressSpec' name='a_address__should_have_a_street' time='0.003'/>
-    <testcase classname='BabylonHealthDemoTests.AddressSpec' name='a_address__should_have_a_suite' time='0.004'/>
+    <testcase classname='BabylonHealthDemoTests.AddressSpec' name='a_address__should_have_a_suite' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.AddressSpec' name='a_address__should_have_a_zipcode' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.AddressSpec' name='a_address__should_have_a_geo' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.AddressSpec' name='a_address__should_have_a_geo_lat' time='0.003'/>
-    <testcase classname='BabylonHealthDemoTests.AddressSpec' name='a_address__should_have_a_geo_lng' time='0.004'/>
+    <testcase classname='BabylonHealthDemoTests.AddressSpec' name='a_address__should_have_a_geo_lng' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.AddressSpec' name='a_address__should_have_a_timeSaved' time='0.004'/>
   </testsuite>
   <testsuite name='BabylonHealthDemoTests.CommentSpec' tests='7' failures='0'>
-    <testcase classname='BabylonHealthDemoTests.CommentSpec' name='a_comment__should_be_able_to_create_a_comment_from_json' time='0.007'/>
+    <testcase classname='BabylonHealthDemoTests.CommentSpec' name='a_comment__should_be_able_to_create_a_comment_from_json' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.CommentSpec' name='a_comment__should_have_a_id' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.CommentSpec' name='a_comment__should_have_a_postId' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.CommentSpec' name='a_comment__should_have_a_name' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.CommentSpec' name='a_comment__should_have_a_body' time='0.003'/>
-    <testcase classname='BabylonHealthDemoTests.CommentSpec' name='a_comment__should_have_a_email' time='0.004'/>
+    <testcase classname='BabylonHealthDemoTests.CommentSpec' name='a_comment__should_have_a_email' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.CommentSpec' name='a_comment__should_have_a_timeSaved' time='0.003'/>
   </testsuite>
   <testsuite name='BabylonHealthDemoTests.CompanySpec' tests='5' failures='0'>
-    <testcase classname='BabylonHealthDemoTests.CompanySpec' name='a_company__should_be_able_to_create_a_company_from_json' time='0.003'/>
-    <testcase classname='BabylonHealthDemoTests.CompanySpec' name='a_company__should_have_a_bs' time='0.004'/>
-    <testcase classname='BabylonHealthDemoTests.CompanySpec' name='a_company__should_have_a_catchPhrase' time='0.005'/>
-    <testcase classname='BabylonHealthDemoTests.CompanySpec' name='a_company__should_have_a_name' time='0.005'/>
+    <testcase classname='BabylonHealthDemoTests.CompanySpec' name='a_company__should_be_able_to_create_a_company_from_json' time='0.004'/>
+    <testcase classname='BabylonHealthDemoTests.CompanySpec' name='a_company__should_have_a_bs' time='0.003'/>
+    <testcase classname='BabylonHealthDemoTests.CompanySpec' name='a_company__should_have_a_catchPhrase' time='0.003'/>
+    <testcase classname='BabylonHealthDemoTests.CompanySpec' name='a_company__should_have_a_name' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.CompanySpec' name='a_company__should_have_a_timeSaved' time='0.003'/>
   </testsuite>
   <testsuite name='BabylonHealthDemoTests.GeoSpec' tests='4' failures='0'>
     <testcase classname='BabylonHealthDemoTests.GeoSpec' name='a_geo__should_be_able_to_create_a_geo_from_json' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.GeoSpec' name='a_geo__should_have_a_lat' time='0.003'/>
-    <testcase classname='BabylonHealthDemoTests.GeoSpec' name='a_geo__should_have_a_lng' time='0.003'/>
-    <testcase classname='BabylonHealthDemoTests.GeoSpec' name='a_geo__should_have_a_timeSaved' time='0.004'/>
+    <testcase classname='BabylonHealthDemoTests.GeoSpec' name='a_geo__should_have_a_lng' time='0.002'/>
+    <testcase classname='BabylonHealthDemoTests.GeoSpec' name='a_geo__should_have_a_timeSaved' time='0.003'/>
   </testsuite>
   <testsuite name='BabylonHealthDemoTests.PostControllerSpec' tests='1' failures='0'>
-    <testcase classname='BabylonHealthDemoTests.PostControllerSpec' name='PostController__should_have_expected_props_setup' time='0.023'/>
+    <testcase classname='BabylonHealthDemoTests.PostControllerSpec' name='PostController__should_have_expected_props_setup' time='0.010'/>
   </testsuite>
   <testsuite name='BabylonHealthDemoTests.PostDatasourceSpec' tests='6' failures='0'>
-    <testcase classname='BabylonHealthDemoTests.PostDatasourceSpec' name='PostDatasource__should_have_a_valid_datasource' time='0.038'/>
-    <testcase classname='BabylonHealthDemoTests.PostDatasourceSpec' name='PostDatasource__should_have_a_cell_of_expected_type__PostCell' time='0.052'/>
-    <testcase classname='BabylonHealthDemoTests.PostDatasourceSpec' name='PostDatasource__should_have_a_cell_of_expected_type__CommentCell' time='0.031'/>
-    <testcase classname='BabylonHealthDemoTests.PostDatasourceSpec' name='PostDatasource__should_have_a_configured_cell__PostCell' time='0.013'/>
-    <testcase classname='BabylonHealthDemoTests.PostDatasourceSpec' name='PostDatasource__should_have_a_configured_cell__CommentCell' time='0.010'/>
-    <testcase classname='BabylonHealthDemoTests.PostDatasourceSpec' name='PostDatasource__should_have_the_right_numberOfItemsInSection' time='0.010'/>
+    <testcase classname='BabylonHealthDemoTests.PostDatasourceSpec' name='PostDatasource__should_have_a_valid_datasource' time='0.057'/>
+    <testcase classname='BabylonHealthDemoTests.PostDatasourceSpec' name='PostDatasource__should_have_a_cell_of_expected_type__PostCell' time='0.032'/>
+    <testcase classname='BabylonHealthDemoTests.PostDatasourceSpec' name='PostDatasource__should_have_a_cell_of_expected_type__CommentCell' time='0.010'/>
+    <testcase classname='BabylonHealthDemoTests.PostDatasourceSpec' name='PostDatasource__should_have_a_configured_cell__PostCell' time='0.011'/>
+    <testcase classname='BabylonHealthDemoTests.PostDatasourceSpec' name='PostDatasource__should_have_a_configured_cell__CommentCell' time='0.009'/>
+    <testcase classname='BabylonHealthDemoTests.PostDatasourceSpec' name='PostDatasource__should_have_the_right_numberOfItemsInSection' time='0.009'/>
   </testsuite>
   <testsuite name='BabylonHealthDemoTests.PostDetailControllerSpec' tests='1' failures='0'>
-    <testcase classname='BabylonHealthDemoTests.PostDetailControllerSpec' name='PostDetailController__should_have_expected_props_setup' time='0.012'/>
+    <testcase classname='BabylonHealthDemoTests.PostDetailControllerSpec' name='PostDetailController__should_have_expected_props_setup' time='0.010'/>
   </testsuite>
   <testsuite name='BabylonHealthDemoTests.PostSpec' tests='6' failures='0'>
-    <testcase classname='BabylonHealthDemoTests.PostSpec' name='a_post__should_be_able_to_create_a_post_from_json' time='0.005'/>
-    <testcase classname='BabylonHealthDemoTests.PostSpec' name='a_post__should_have_a_userId' time='0.005'/>
-    <testcase classname='BabylonHealthDemoTests.PostSpec' name='a_post__should_have_a_id' time='0.004'/>
+    <testcase classname='BabylonHealthDemoTests.PostSpec' name='a_post__should_be_able_to_create_a_post_from_json' time='0.003'/>
+    <testcase classname='BabylonHealthDemoTests.PostSpec' name='a_post__should_have_a_userId' time='0.003'/>
+    <testcase classname='BabylonHealthDemoTests.PostSpec' name='a_post__should_have_a_id' time='0.002'/>
     <testcase classname='BabylonHealthDemoTests.PostSpec' name='a_post__should_have_a_title' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.PostSpec' name='a_post__should_have_a_body' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.PostSpec' name='a_post__should_have_a_timeSaved' time='0.003'/>
   </testsuite>
   <testsuite name='BabylonHealthDemoTests.PostXCTest' tests='1' failures='0'>
-    <testcase classname='BabylonHealthDemoTests.PostXCTest' name='testInitialization' time='0.017'/>
+    <testcase classname='BabylonHealthDemoTests.PostXCTest' name='testInitialization' time='0.007'/>
   </testsuite>
   <testsuite name='BabylonHealthDemoTests.PostsDatasourceSpec' tests='4' failures='0'>
-    <testcase classname='BabylonHealthDemoTests.PostsDatasourceSpec' name='PostsDatasource__should_have_a_valid_datasource' time='0.006'/>
-    <testcase classname='BabylonHealthDemoTests.PostsDatasourceSpec' name='PostsDatasource__should_have_a_cell_of_expected_type' time='0.049'/>
-    <testcase classname='BabylonHealthDemoTests.PostsDatasourceSpec' name='PostsDatasource__should_have_a_configured_cell' time='0.007'/>
-    <testcase classname='BabylonHealthDemoTests.PostsDatasourceSpec' name='PostsDatasource__should_have_the_right_numberOfItemsInSection' time='0.007'/>
+    <testcase classname='BabylonHealthDemoTests.PostsDatasourceSpec' name='PostsDatasource__should_have_a_valid_datasource' time='0.007'/>
+    <testcase classname='BabylonHealthDemoTests.PostsDatasourceSpec' name='PostsDatasource__should_have_a_cell_of_expected_type' time='0.007'/>
+    <testcase classname='BabylonHealthDemoTests.PostsDatasourceSpec' name='PostsDatasource__should_have_a_configured_cell' time='0.008'/>
+    <testcase classname='BabylonHealthDemoTests.PostsDatasourceSpec' name='PostsDatasource__should_have_the_right_numberOfItemsInSection' time='0.006'/>
   </testsuite>
   <testsuite name='BabylonHealthDemoTests.UserSpec' tests='20' failures='0'>
     <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_be_able_to_create_a_user_from_json' time='0.004'/>
     <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_id' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_name' time='0.003'/>
-    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_username' time='0.004'/>
+    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_username' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_email' time='0.003'/>
-    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_phone' time='0.005'/>
-    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_website' time='0.004'/>
-    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_address' time='0.004'/>
+    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_phone' time='0.004'/>
+    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_website' time='0.003'/>
+    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_address' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_address_city' time='0.003'/>
-    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_address_street' time='0.003'/>
+    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_address_street' time='0.004'/>
     <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_address_suite' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_address_zipcode' time='0.003'/>
-    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_address_geo' time='0.004'/>
+    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_address_geo' time='0.003'/>
     <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_address_geo_lat' time='0.003'/>
-    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_address_geo_lng' time='0.003'/>
-    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_company' time='0.004'/>
-    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_company_bs' time='0.006'/>
-    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_company_catchPhrase' time='0.004'/>
-    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_company_name' time='0.003'/>
+    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_address_geo_lng' time='0.004'/>
+    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_company' time='0.003'/>
+    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_company_bs' time='0.003'/>
+    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_company_catchPhrase' time='0.003'/>
+    <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_company_name' time='0.004'/>
     <testcase classname='BabylonHealthDemoTests.UserSpec' name='a_user__should_have_a_timeSaved' time='0.003'/>
   </testsuite>
 </testsuites>
