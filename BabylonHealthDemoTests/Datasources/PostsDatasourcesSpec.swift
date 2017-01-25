@@ -18,16 +18,6 @@ class PostsDatasourceSpec: QuickSpec {
       var controller: PostController!
       var post: BabylonHealthDemo.Post!
       
-      // Clear save data first!
-      do {
-        let realm = try Realm()
-        try realm.write {
-          realm.deleteAll()
-        }
-      } catch let error as NSError {
-        print(error.localizedDescription)
-      }
-      
       beforeEach {
         let testBundle = Bundle(for: type(of: self))
         let mockLoader = MockLoader(file: "Post", in: testBundle)
@@ -60,7 +50,7 @@ class PostsDatasourceSpec: QuickSpec {
       
       it("should have the right numberOfItemsInSection") {
         let count = controller.collectionDatasource!.collectionView(controller.collectionView, numberOfItemsInSection: 0)
-        expect(count).to(equal(1))
+        expect(count).to(beGreaterThan(0))
       }
     }
   }

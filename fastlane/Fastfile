@@ -18,7 +18,10 @@ platform :ios do
       workspace: "BabylonHealthDemo.xcworkspace",
       scheme: "BabylonHealthDemo",
       proj: "BabylonHealthDemo.xcodeproj",
-      html: true
+      html: true,
+      ignore: [
+        "**/Storyboard.swift"
+      ]
    )
  end
 end

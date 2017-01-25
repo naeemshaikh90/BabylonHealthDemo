@@ -54,6 +54,12 @@ class PostControllerSpec: QuickSpec {
         expect(controller.posts).toNot(beNil())
         expect(controller.collectionView).toNot(beNil())
       }
+      
+      it("should use mock response on fetchPosts") {
+        controller.viewDidLoad()
+        let count = controller.collectionDatasource?.posts.count ?? 0
+        expect(count).toEventually(equal(1))
+      }
     }
   }
 }
