@@ -5,7 +5,14 @@
 # BabylonHealthDemo
 
 [![Language](https://img.shields.io/badge/language-Swift%203.0-orange.svg)](https://swift.org)
-[![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](/Licence)
+[![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](/Licence)
+
+-------
+<p align="center">
+    <a href="#requirements">Requirements</a> &bull;
+    <a href="#installation">Installation</a>
+</p>
+-------
 
 ### Requirements 
 
@@ -16,3 +23,24 @@ The following requirements should be met:
 - [x] The code should be production grade. 
 - [x] It should compile and run.
 - [x] Testing
+
+## Installation
+
+This project uses [Bundler](http://bundler.io) and [CocoaPods](https://cocoapods.org). All you need to setup it properly is:
+```
+bundle
+bundle exec pod install
+```
+
+## Tests And Coverage
+
+You can run the tests any time. All your need to do is:
+```
+bundle exec fastlane test
+```
+
+## Special Thanks
+This demo project is highly inspired by the [Thiago Lioy](https://github.com/thiagolioy)'s [Marvel App](https://github.com/thiagolioy/marvelapp).
+
+## License
+This project is licensed under the terms of the MIT license. See the LICENSE file.
