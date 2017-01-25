@@ -4,8 +4,10 @@
 
 # BabylonHealthDemo
 
+[![Twitter](https://img.shields.io/badge/Twitter-%40naeemshaikh90-blue.svg)](https://twitter.com/naeemshaikh90)
 [![Language](https://img.shields.io/badge/language-Swift%203.0-orange.svg)](https://swift.org)
 [![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](/Licence)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 -------
 <p align="center">
