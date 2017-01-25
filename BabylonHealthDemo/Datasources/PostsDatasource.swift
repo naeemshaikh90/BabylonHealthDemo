@@ -18,7 +18,7 @@ private struct Section {
 }
 
 final class PostsDatasource: NSObject, PostCollectionDatasource {
-  var posts:[Post] = []
+  var posts: [Post] = []
   fileprivate var sections = [Section]()
   
   weak var collectionView: UICollectionView?

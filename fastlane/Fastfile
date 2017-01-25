@@ -10,9 +10,9 @@ platform :ios do
 
   end
 
- desc "Runs all the tests”
+ desc "Runs all the tests"
  lane :test do
-   scan(scheme: "BabylonHealthDemo”)
+   scan(scheme: "BabylonHealthDemo")
    slather(
       output_directory: "coverage",
       workspace: "BabylonHealthDemo.xcworkspace",
@@ -21,7 +21,7 @@ platform :ios do
       html: true
    )
    gym(
-     # scheme: "YourScheme"
+     # scheme: "BabylonHealthDemo"
    )
  end
 end

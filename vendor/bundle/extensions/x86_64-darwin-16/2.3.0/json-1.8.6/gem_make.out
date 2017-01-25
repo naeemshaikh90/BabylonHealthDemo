@@ -1,0 +1,13 @@
+current directory: /Users/naeem.shaikh/Desktop/Naeem_iOS/RnD/Swift/BabylonHealthDemo/vendor/bundle/gems/json-1.8.6/ext/json
+/usr/local/opt/ruby/bin/ruby -r ./siteconf20170125-2964-1ds578g.rb extconf.rb
+creating Makefile
+
+current directory: /Users/naeem.shaikh/Desktop/Naeem_iOS/RnD/Swift/BabylonHealthDemo/vendor/bundle/gems/json-1.8.6/ext/json
+make "DESTDIR=" clean
+
+current directory: /Users/naeem.shaikh/Desktop/Naeem_iOS/RnD/Swift/BabylonHealthDemo/vendor/bundle/gems/json-1.8.6/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/naeem.shaikh/Desktop/Naeem_iOS/RnD/Swift/BabylonHealthDemo/vendor/bundle/gems/json-1.8.6/ext/json
+make "DESTDIR=" install

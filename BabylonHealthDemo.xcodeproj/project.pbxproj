@@ -40,6 +40,7 @@
 		F7B4B9D71E27603100EB6A18 /* PostDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4B9D61E27603100EB6A18 /* PostDetailController.swift */; };
 		F7B4B9DC1E27633000EB6A18 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4B9DB1E27633000EB6A18 /* Storyboard.swift */; };
 		F7B4B9DF1E27664600EB6A18 /* PostControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4B9DE1E27664600EB6A18 /* PostControllerSpec.swift */; };
+		F7CDFCF51E2F9C2C0068FAA5 /* PostXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CDFCF41E2F9C2C0068FAA5 /* PostXCTest.swift */; };
 		F7F4BADA1E2DD26900EDEE01 /* Comment.json in Resources */ = {isa = PBXBuildFile; fileRef = F7F4BAD91E2DD26900EDEE01 /* Comment.json */; };
 		F7F4BADC1E2DD28A00EDEE01 /* User.json in Resources */ = {isa = PBXBuildFile; fileRef = F7F4BADB1E2DD28A00EDEE01 /* User.json */; };
 		F7F4BADE1E2DD2E800EDEE01 /* CommentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F4BADD1E2DD2E800EDEE01 /* CommentSpec.swift */; };
@@ -106,6 +107,7 @@
 		F7B4B9D61E27603100EB6A18 /* PostDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailController.swift; sourceTree = "<group>"; };
 		F7B4B9DB1E27633000EB6A18 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		F7B4B9DE1E27664600EB6A18 /* PostControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostControllerSpec.swift; sourceTree = "<group>"; };
+		F7CDFCF41E2F9C2C0068FAA5 /* PostXCTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostXCTest.swift; sourceTree = "<group>"; };
 		F7F4BAD91E2DD26900EDEE01 /* Comment.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Comment.json; sourceTree = "<group>"; };
 		F7F4BADB1E2DD28A00EDEE01 /* User.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = User.json; sourceTree = "<group>"; };
 		F7F4BADD1E2DD2E800EDEE01 /* CommentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentSpec.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 		B462A1261E2685CF00BC518D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F71BBB831E30728600FC0A95 /* XCTest */,
 				B462A12B1E26886000BC518D /* PostSpec.swift */,
 				F7F4BADD1E2DD2E800EDEE01 /* CommentSpec.swift */,
 				F7F4BADF1E2DD51900EDEE01 /* UserSpec.swift */,
@@ -224,6 +227,14 @@
 				F715FC621E2CA3F600757A35 /* CommonUtility.swift */,
 			);
 			path = CommonUtility;
+			sourceTree = "<group>";
+		};
+		F71BBB831E30728600FC0A95 /* XCTest */ = {
+			isa = PBXGroup;
+			children = (
+				F7CDFCF41E2F9C2C0068FAA5 /* PostXCTest.swift */,
+			);
+			name = XCTest;
 			sourceTree = "<group>";
 		};
 		F779C33D1E25E43D008BBB2A = {
@@ -615,6 +626,7 @@
 				B462A12C1E26886000BC518D /* PostSpec.swift in Sources */,
 				F7F4BAF21E2DEE6F00EDEE01 /* PostDatasourcesSpec.swift in Sources */,
 				F7B4B9D11E27547400EB6A18 /* PostsDatasourcesSpec.swift in Sources */,
+				F7CDFCF51E2F9C2C0068FAA5 /* PostXCTest.swift in Sources */,
 				F7F4BAF01E2DE6C900EDEE01 /* PostDetailControllerSpec.swift in Sources */,
 				F7F4BAEC1E2DE5A000EDEE01 /* GeoSpec.swift in Sources */,
 				F7F4BAE01E2DD51900EDEE01 /* UserSpec.swift in Sources */,
@@ -656,6 +668,7 @@
 		F779C3611E25E43E008BBB2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -706,6 +719,7 @@
 		F779C3621E25E43E008BBB2A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -750,7 +764,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EB0C14297169136FBCAA7E71 /* Pods-BabylonHealthDemo.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: naeemshaikh90@yahoo.co.in (7U892L9Z49)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -768,7 +782,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A1EBB1DAE68A0ECBB96C9CBA /* Pods-BabylonHealthDemo.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: naeemshaikh90@yahoo.co.in (7U892L9Z49)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -786,7 +800,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CCA4CE467B37E50E141612A2 /* Pods-BabylonHealthDemoTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = BabylonHealthDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -801,7 +815,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 823E43899E47E6E074491D8D /* Pods-BabylonHealthDemoTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = BabylonHealthDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
