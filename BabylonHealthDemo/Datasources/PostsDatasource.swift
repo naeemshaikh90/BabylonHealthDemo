@@ -68,7 +68,7 @@ final class PostsDatasource: NSObject, PostCollectionDatasource {
   func postCollectionCellAt(_ indexPath: IndexPath) -> PostCollectionCell {
     let cell = self.collectionView!.dequeueReusableCell(for: indexPath, cellType: PostCollectionCell.self)
     let post = self.posts[indexPath.row]
-    cell.setup(post: post)
+    cell.setup(title: post.title)
     return cell
   }
 }

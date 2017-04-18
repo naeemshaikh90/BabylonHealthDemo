@@ -74,14 +74,16 @@ final class PostDatasource: NSObject, PostTableViewDatasource {
   
   func postCellAt(_ indexPath: IndexPath) -> PostCell {
     let cell = self.tableView!.dequeueReusableCell(for: indexPath, cellType: PostCell.self)
-    cell.setup(post: post)
+    cell.setup(title: post.title, body: post.body)
     return cell
   }
   
   func commentCellAt(_ indexPath: IndexPath) -> CommentCell {
     let cell = self.tableView!.dequeueReusableCell(for: indexPath, cellType: CommentCell.self)
     let comment = self.comments[indexPath.row]
-    cell.setup(comment: comment)
+    cell.setup(title: comment.name,
+               email: comment.email,
+               body: comment.body)
     return cell
   }
 }

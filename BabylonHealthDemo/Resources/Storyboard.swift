@@ -2,7 +2,6 @@
 
 import Foundation
 import UIKit
-import BabylonHealthDemo
 
 // swiftlint:disable file_length
 // swiftlint:disable line_length
@@ -14,7 +13,7 @@ protocol StoryboardSceneType {
 
 extension StoryboardSceneType {
   static func storyboard() -> UIStoryboard {
-    return UIStoryboard(name: self.storyboardName, bundle: nil)
+    return UIStoryboard(name: self.storyboardName, bundle: Bundle(for: BundleToken.self))
   }
 
   static func initialViewController() -> UIViewController {
@@ -42,7 +41,7 @@ extension UIViewController {
   }
 }
 
-struct Storyboard {
+enum Storyboard {
   enum LaunchScreen: StoryboardSceneType {
     static let storyboardName = "LaunchScreen"
   }
@@ -76,5 +75,7 @@ struct Storyboard {
   }
 }
 
-struct StoryboardSegue {
+enum StoryboardSegue {
 }
+
+private final class BundleToken {}

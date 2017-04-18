@@ -11,7 +11,7 @@ import Foundation
 
 // MARK: - Methods
 public extension Dictionary {
-
+	
 	/// SwifterSwift: Check if key exists in dictionary.
 	///
 	/// - Parameter key: key to search for
@@ -19,7 +19,7 @@ public extension Dictionary {
 	func has(key: Key) -> Bool {
 		return index(forKey: key) != nil
 	}
-
+	
 	/// SwifterSwift: JSON Data from dictionary.
 	///
 	/// - Parameter prettify: set true to prettify data (default is false).
@@ -29,14 +29,9 @@ public extension Dictionary {
 			return nil
 		}
 		let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization.WritingOptions()
-		do {
-			let jsonData = try JSONSerialization.data(withJSONObject: self, options: options)
-			return jsonData
-		} catch {
-			return nil
-		}
+		return try? JSONSerialization.data(withJSONObject: self, options: options)
 	}
-
+	
 	/// SwifterSwift: JSON String from dictionary.
 	///
 	/// - Parameter prettify: set true to prettify string (default is false).
@@ -46,28 +41,24 @@ public extension Dictionary {
 			return nil
 		}
 		let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization.WritingOptions()
-		do {
-			let jsonData = try JSONSerialization.data(withJSONObject: self, options: options)
-			return String(data: jsonData, encoding: .utf8)
-		} catch {
-			return nil
-		}
+		let jsonData = try? JSONSerialization.data(withJSONObject: self, options: options)
+		return jsonData?.string(encoding: .utf8)
 	}
-
+	
 }
 
 
 // MARK: - Methods (ExpressibleByStringLiteral)
 public extension Dictionary where Key: ExpressibleByStringLiteral {
-
+	
 	/// SwifterSwift: Lowercase all keys in dictionary.
 	public mutating func lowercaseAllKeys() {
 		// http://stackoverflow.com/questions/33180028/extend-dictionary-where-key-is-of-type-string
-		for key in self.keys {
+		for key in keys {
 			if let lowercaseKey = String(describing: key).lowercased() as? Key {
-				self[lowercaseKey] = self.removeValue(forKey: key)
+				self[lowercaseKey] = removeValue(forKey: key)
 			}
 		}
 	}
-
+	
 }

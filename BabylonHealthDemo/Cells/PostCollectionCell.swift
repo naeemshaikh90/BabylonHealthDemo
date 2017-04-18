@@ -33,7 +33,7 @@ class PostCollectionCell: UICollectionViewCell, NibReusable {
     return CGSize(width: width, height: height)
   }
   
-  func setup(post: Post) {
-    postTitle.text = post.title
+  func setup(title: String) {
+    postTitle.text = title
   }
 }

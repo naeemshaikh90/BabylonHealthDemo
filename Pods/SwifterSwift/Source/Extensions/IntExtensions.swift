@@ -6,7 +6,11 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-import Foundation
+#if os(macOS)
+import Cocoa
+#else
+import UIKit
+#endif
 
 
 // MARK: - Properties
@@ -27,7 +31,7 @@ public extension Int {
 	
 	/// SwifterSwift: Radian value of degree input.
 	public var degreesToRadians: Double {
-		return Double(M_PI) * Double(self) / 180.0
+		return Double.pi * Double(self) / 180.0
 	}
 	
 	/// SwifterSwift: Array of digits of integer value.
@@ -56,9 +60,39 @@ public extension Int {
 		return (self % 2) != 0
 	}
 	
+	/// SwifterSwift: Check if integer is positive.
+	public var isPositive: Bool {
+		return self > 0
+	}
+	
+	/// SwifterSwift: Check if integer is negative.
+	public var isNegative: Bool {
+		return self < 0
+	}
+	
+	/// SwifterSwift: Double.
+	public var double: Double {
+		return Double(self)
+	}
+	
+	/// SwifterSwift: Float.
+	public var float: Float {
+		return Float(self)
+	}
+	
+	/// SwifterSwift: CGFloat.
+	public var cgFloat: CGFloat {
+		return CGFloat(self)
+	}
+	
+	/// SwifterSwift: String.
+	public var string: String {
+		return String(self)
+	}
+	
 	/// SwifterSwift: Degree value of radian input
 	public var radiansToDegrees: Double {
-		return Double(self) * 180 / Double(M_PI)
+		return Double(self) * 180 / Double.pi
 	}
 	
 	/// SwifterSwift: Roman numeral string from integer (if applicable).
@@ -83,13 +117,10 @@ public extension Int {
 				startingValue -= arabicValue * div
 			}
 		}
-		guard romanValue.characters.count > 0 else {
-			return nil
-		}
 		return romanValue
 	}
 	
-	/// SwifterSwift: String of format (XXh XXm) from seconds Int
+	/// SwifterSwift: String of format (XXh XXm) from seconds Int.
 	public var timeString: String {
 		guard self > 0 else {
 			return "0 sec"
@@ -103,15 +134,10 @@ public extension Int {
 		let hours = self / 3600
 		let mins = (self % 3600) / 60
 		
-		if hours == 0 && mins != 0 {
-			return "\(mins) min"
-			
-		} else if hours != 0 && mins == 0 {
-			return "\(hours) h"
-			
-		} else {
-			return "\(hours) h \(mins) m"
+		if hours != 0 && mins == 0 {
+			return "\(hours)h"
 		}
+		return "\(hours)h \(mins)m"
 	}
 	
 	/// SwifterSwift: String formatted for values over ±1000 (example: 1k, -2k, 100k, 1kk, -5kk..)
@@ -120,15 +146,14 @@ public extension Int {
 			return self >= 0 ? "" : "-"
 		}
 		let abs = self.abs
-		if abs >= 0 && abs < 1000 {
-			return "0K"
+		if abs == 0 {
+			return "0k"
+		} else if abs >= 0 && abs < 1000 {
+			return "0k"
 		} else if abs >= 1000 && abs < 1000000 {
 			return String(format: "\(sign)%ik", abs / 1000)
-		} else if abs >= 1000000 {
-			return String(format: "\(sign)%ikk", abs / 100000)
-		} else {
-			return String(describing: self)
 		}
+		return String(format: "\(sign)%ikk", abs / 100000)
 	}
 	
 }
@@ -158,10 +183,39 @@ public extension Int {
 	/// - Parameters:
 	///   - min: minimum number to start random from.
 	///   - max: maximum number random number end before.
-	/// - Returns: random integer between two integer values.
-	public static func randomBetween(min: Int, max: Int) -> Int {
-		let delta = max - min
-		return min + Int(arc4random_uniform(UInt32(delta)))
+	/// - Returns: random double between two double values.
+	public static func random(between min: Int, and max: Int) -> Int {
+		return random(inRange: min...max)
+	}
+	
+	/// SwifterSwift: Random integer in a closed interval range.
+	///
+	/// - Parameter range: closed interval range.
+	public static func random(inRange range: ClosedRange<Int>) -> Int {
+		let delta = UInt32(range.upperBound - range.lowerBound + 1)
+		return range.lowerBound + Int(arc4random_uniform(delta))
+	}
+	
+}
+
+
+// MARK: - Initializers
+public extension Int {
+	
+	/// SwifterSwift: Created a random integer between two integer values.
+	///
+	/// - Parameters:
+	///   - min: minimum number to start random from.
+	///   - max: maximum number random number end before.
+	public init(randomBetween min: Int, and max: Int) {
+		self = Int.random(between: min, and: max)
+	}
+	
+	/// SwifterSwift: Create a random integer in a closed interval range.
+	///
+	/// - Parameter range: closed interval range.
+	public init(randomInRange range: ClosedRange<Int>) {
+		self = Int.random(inRange: range)
 	}
 	
 }
@@ -169,7 +223,8 @@ public extension Int {
 
 // MARK: - Operators
 
-infix operator **
+precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
+infix operator ** : PowerPrecedence
 /// SwifterSwift: Value of exponentiation.
 ///
 /// - Parameters:

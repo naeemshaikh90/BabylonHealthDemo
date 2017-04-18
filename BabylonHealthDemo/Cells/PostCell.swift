@@ -31,8 +31,8 @@ final class PostCell: UITableViewCell, NibReusable {
     return 67
   }
   
-  func setup(post: Post) {
-    postTitle.text = post.title
-    postBody.text = post.body
+  func setup(title: String, body: String) {
+    postTitle.text = title
+    postBody.text = body
   }
 }

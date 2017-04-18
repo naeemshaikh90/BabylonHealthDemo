@@ -6,17 +6,21 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-import Foundation
+#if os(macOS)
+import Cocoa
+#else
+import UIKit
+#endif
 
 
 // MARK: - Properties
 public extension Float {
-
+	
 	/// SwifterSwift: Absolute of float value.
 	public var abs: Float {
 		return Swift.abs(self)
 	}
-
+	
 	/// SwifterSwift: String with number and current locale currency.
 	public var asLocaleCurrency: String {
 		let formatter = NumberFormatter()
@@ -24,50 +28,110 @@ public extension Float {
 		formatter.locale = Locale.current
 		return formatter.string(from: self as NSNumber)!
 	}
-
+	
 	/// SwifterSwift: Ceil of float value.
 	public var ceil: Float {
 		return Foundation.ceil(self)
 	}
-
+	
 	/// SwifterSwift: Radian value of degree input.
 	public var degreesToRadians: Float {
-		return Float(M_PI) * self / 180.0
+		return Float.pi * self / 180.0
 	}
-
+	
 	/// SwifterSwift: Floor of float value.
 	public var floor: Float {
 		return Foundation.floor(self)
 	}
-
+	
+	/// SwifterSwift: Check if float is positive.
+	public var isPositive: Bool {
+		return self > 0
+	}
+	
+	/// SwifterSwift: Check if float is negative.
+	public var isNegative: Bool {
+		return self < 0
+	}
+	
+	/// SwifterSwift: Int.
+	public var int: Int {
+		return Int(self)
+	}
+	
+	/// SwifterSwift: Double.
+	public var double: Double {
+		return Double(self)
+	}
+	
+	/// SwifterSwift: CGFloat.
+	public var cgFloat: CGFloat {
+		return CGFloat(self)
+	}
+	
+	/// SwifterSwift: String.
+	public var string: String {
+		return String(self)
+	}
+	
 	/// SwifterSwift: Degree value of radian input.
 	public var radiansToDegrees: Float {
-		return self * 180 / Float(M_PI)
+		return self * 180 / Float.pi
 	}
-
+	
 }
 
 
 // MARK: - Methods
 extension Float {
-
+	
 	/// SwifterSwift: Random float between two float values.
 	///
 	/// - Parameters:
 	///   - min: minimum number to start random from.
 	///   - max: maximum number random number end before.
-	/// - Returns: random float between two Float values.
-	public static func randomBetween(min: Float, max: Float) -> Float {
-		let delta = max - min
-		return min + Float(arc4random_uniform(UInt32(delta)))
+	/// - Returns: random double between two double values.
+	public static func random(between min: Float, and max: Float) -> Float {
+		return random(inRange: min...max)
 	}
+	
+	/// SwifterSwift: Random float in a closed interval range.
+	///
+	/// - Parameter range: closed interval range.
+	public static func random(inRange range: ClosedRange<Float>) -> Float {
+		let delta = range.upperBound - range.lowerBound
+		return Float(arc4random()) / Float(UInt64(UINT32_MAX)) * delta + range.lowerBound
+	}
+	
+}
 
+
+// MARK: - Initializers
+public extension Float {
+	
+	/// SwifterSwift: Created a random float between two float values.
+	///
+	/// - Parameters:
+	///   - min: minimum number to start random from.
+	///   - max: maximum number random number end before.
+	public init(randomBetween min: Float, and max: Float) {
+		self = Float.random(between: min, and: max)
+	}
+	
+	/// SwifterSwift: Create a random float in a closed interval range.
+	///
+	/// - Parameter range: closed interval range.
+	public init(randomInRange range: ClosedRange<Float>) {
+		self = Float.random(inRange: range)
+	}
+	
 }
 
 
 // MARK: - Operators
 
-infix operator **
+precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
+infix operator ** : PowerPrecedence
 /// SwifterSwift: Value of exponentiation.
 ///
 /// - Parameters:

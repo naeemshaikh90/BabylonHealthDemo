@@ -32,9 +32,9 @@ final class CommentCell: UITableViewCell, NibReusable {
     return 102
   }
   
-  func setup(comment: Comment) {
-    commentTitle.text = comment.name
-    commentEmail.text = comment.email
-    commentBody.text = comment.body
+  func setup(title: String, email: String, body: String) {
+    commentTitle.text = title
+    commentEmail.text = email
+    commentBody.text = body
   }
 }
